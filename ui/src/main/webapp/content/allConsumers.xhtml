@@ -1,0 +1,140 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+	<ui:define name="main">
+		<h:form id="form">
+			<p:panel header="All consumers">
+
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Consumer" />
+					<p:selectOneMenu filter="true" filterMatchMode="contains"
+						value="#{allCon.selectedCon}">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{allCon.consumerNames}" />
+						<p:ajax listener="#{allCon.handleCityChange}"
+							update=":#{p:component('results1')}"></p:ajax>
+					</p:selectOneMenu>
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+
+		<p:separator></p:separator>
+		<p:spacer height="10"></p:spacer>
+		<h:form id="results1">
+
+			<p:dialog header="Consumer: #{allCon.selectedConsumerDetail.name}"
+				widgetVar="info1" dynamic="true" appendTo="@parent"
+				style="width: 1000px">
+
+				<p:tabView id="tabView" dynamic="true" cache="false">
+
+					<p:tab id="tba1" title="Details">
+						<p:panelGrid columns="2">
+							<p:outputLabel value="Name" />
+							<p:outputLabel value="#{allCon.selectedConsumerDetail.name}" />
+
+							<p:outputLabel value="Maven group id" />
+							<p:outputLabel
+								value="#{allCon.selectedConsumerDetail.artifactDetail.groupId}" />
+
+							<p:outputLabel value="Maven artifact id" />
+							<p:outputLabel
+								value="#{allCon.selectedConsumerDetail.artifactDetail.artifactId}" />
+
+							<p:outputLabel value="Maven version" />
+							<p:outputLabel
+								value="#{allCon.selectedConsumerDetail.artifactDetail.version}" />
+
+							<p:outputLabel value="Maven classifier" />
+							<p:outputLabel
+								value="#{allCon.selectedConsumerDetail.artifactDetail.classifier}" />
+
+							<p:outputLabel value="Tags" />
+							<p:outputLabel value="#{allCon.selectedConsumerDetail.tags}" />
+						</p:panelGrid>
+
+						<p:spacer height="10"></p:spacer>
+						<p:separator></p:separator>
+						<p:spacer height="10"></p:spacer>
+						<p:dataTable id="services" var="service"
+							value="#{allCon.selectedConsumerDetail.services}"
+							paginator="true" rows="10"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							rowsPerPageTemplate="5,10,15" style="width:100%">
+							<f:facet name="header">  
+                      Services associated  
+                 </f:facet>
+
+							<p:column>
+								<f:facet name="header">  
+                    Maven group id  
+            </f:facet>
+								<h:outputText value="#{service.groupId}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Maven artifact id  
+            </f:facet>
+								<h:outputText value="#{service.artifactId}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Maven version  
+            </f:facet>
+								<h:outputText value="#{service.version}" />
+							</p:column>
+							
+							<p:column>
+                                <f:facet name="header">  
+                    Service version  
+            </f:facet>
+                                <h:outputText value="#{service.classifier}" />
+                            </p:column>
+						</p:dataTable>
+
+					</p:tab>
+				</p:tabView>
+			</p:dialog>
+			<p:dataTable id="consumers" var="consumer"
+				value="#{allCon.consumerDataModel}" paginator="true" rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" style="width:100%"
+				rendered="#{allCon.showTabs}"
+				selection="#{allCon.selectedConsumerDetail}" selectionMode="single">
+
+				<p:ajax event="rowSelect" listener="#{allCon.onRowSelect}"
+					update="@parent" />
+
+				<f:facet name="header">  
+                                Consumers by name #{allCon.selectedCon}  
+                            </f:facet>
+
+				<p:column>
+					<f:facet name="header">  
+                    Maven Group Id  
+            </f:facet>
+					<h:outputText value="#{consumer.artifactDetail.groupId}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">  
+                    Maven Artifact Id  
+            </f:facet>
+					<h:outputText value="#{consumer.artifactDetail.artifactId}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">  
+                    Maven Version  
+            </f:facet>
+					<h:outputText value="#{consumer.artifactDetail.version}" />
+				</p:column>
+			</p:dataTable>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+	<ui:define name="main">
+		<h:form id="form">
+			<p:panel header="Diff project artifacts" toggleable="true">
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Project"></p:outputLabel>
+					<p:selectOneMenu filter="true" filterMatchMode="contains"
+						value="#{diff.selectedProject}">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{diff.projectArtifactIds}" />
+						<p:ajax listener="#{diff.onChange}"
+							update=":#{p:component('versions')} :#{p:component('results')}"></p:ajax>
+					</p:selectOneMenu>
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+		<h:form id="versions">
+			<p:panel header="Choose the versions to diff"
+				rendered="#{diff.showTabs}" toggleable="true">
+				<p:pickList id="pickList" value="#{diff.pick}" var="version"
+					itemLabel="#{diff.selectedProject}(#{version})"
+					itemValue="#{version}" rendered="#{diff.showTabs}"
+					filterMatchMode="contains" effect="fade">
+					<f:facet name="sourceCaption">Available</f:facet>
+					<f:facet name="targetCaption">To be diffed</f:facet>
+					<p:ajax event="transfer" listener="#{diff.onTransfer}" />
+				</p:pickList>
+				<p:commandButton value="Find Diff" action="#{diff.doDiff}"
+					rendered="#{diff.showTabs}" update=":#{p:component('results')}" />
+			</p:panel>
+		</h:form>
+
+		<h:form id="results">
+			<p:tree id="tree" value="#{diff.root}" var="node"
+				orientation="horizontal" rendered="#{diff.root != null}">
+				<p:treeNode id="treeNode">
+					<h:outputText value="#{node}" id="lblNode" />
+				</p:treeNode>
+			</p:tree>
+		</h:form>
+	</ui:define>
+</ui:composition>

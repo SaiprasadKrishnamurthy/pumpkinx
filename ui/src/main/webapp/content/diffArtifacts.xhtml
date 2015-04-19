@@ -1,0 +1,76 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+	<ui:define name="main">
+		<h:form>
+			<p:spacer height="20" />
+			<p:panel header="Find the differences between any two artifacts">
+				<p:spacer height="20" />
+				<p:panelGrid columns="1">
+					<p:autoComplete id="acSimple1" value="#{diffArtifacts.artifact1}"
+						completeMethod="#{diffArtifacts.onQuery}" size="120"
+						queryDelay="1000" cache="true" placeholder="First artifact id"
+						emptyMessage="No results found" />
+					<p:autoComplete id="acSimple2" value="#{diffArtifacts.artifact2}"
+						completeMethod="#{diffArtifacts.onQuery}" size="120"
+						queryDelay="1000" cache="true" placeholder="Second artifact id"
+						emptyMessage="No results found" />
+					<p:commandButton value="Find Diff" action="#{diffArtifacts.diff}"
+						update=":#{p:component('diffArtifactResults')}"></p:commandButton>
+				</p:panelGrid>
+			</p:panel>
+
+			<p:spacer height="5" />
+			<p:panel id="diffArtifactResults">
+				<p:tabView rendered="#{diffArtifacts.deltas != null}">
+					<p:tab title="Dependency deltas">
+						<p:dataTable id="deltas" var="cse" value="#{diffArtifacts.deltas}"
+							emptyMessage="No differences.">
+							<p:column>
+								<f:facet name="header">  
+                                    Deltas between #{diffArtifacts.artifact1} and #{diffArtifacts.artifact2}
+                                </f:facet>
+								<b><h:outputText value="#{cse}" /></b>
+							</p:column>
+						</p:dataTable>
+					</p:tab>
+					<p:tab title="Committers between these versions">
+						<p:dataTable id="committers" var="cse"
+							value="#{diffArtifacts.committers}">
+							<p:column>
+								<f:facet name="header">  
+                                    Committers between #{diffArtifacts.artifact1} and #{diffArtifacts.artifact2}
+                                </f:facet>
+								<b><h:outputText value="#{cse}" /></b>
+							</p:column>
+						</p:dataTable>
+						</p:tab>
+						<p:tab title="Files modified between these versions">
+							<p:dataTable id="source" var="cse"
+								value="#{diffArtifacts.entries}">
+								<p:column>
+									<f:facet name="header">  
+                                    Files modified between #{diffArtifacts.artifact1} and #{diffArtifacts.artifact2}
+                                </f:facet>
+									<b><h:outputText value="#{cse}" /></b>
+								</p:column>
+								<p:column>
+                                    <f:facet name="header">  
+                                    View Changes 
+                                </f:facet>
+                                    <p:commandButton
+                                        actionListener="#{diffArtifacts.viewFileDiff(cse)}"
+                                        icon="ui-icon-search" title="View diff">
+                                    </p:commandButton>
+                                </p:column>
+							</p:dataTable>
+						</p:tab>
+				</p:tabView>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+	<ui:define name="main">
+		<h:form id="form">
+
+			<p:tabView>
+				<p:tab title="Register a new artifact">
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Group id" />
+						<p:inputText value="#{admin.meta.groupId}" />
+
+						<p:outputLabel value="Artifact id" />
+						<p:inputText value="#{admin.meta.artifactId}" />
+
+						<p:outputLabel value="Packaging(jar, war, pom, zip)" />
+						<p:inputText value="#{admin.meta.packaging}" />
+
+						<p:outputLabel
+							value="RPM name(just prefix eg: sitaAuditwsPortalRelease) " />
+						<p:inputText value="#{admin.meta.rpmName}" />
+
+						<p:outputLabel
+							value="SVN Trunk location(eg: Components/Profiler/Presentation-WS/trunk) " />
+						<p:inputText value="#{admin.meta.svnLocation}" />
+
+						<p:outputLabel value="Artifact category" />
+						<p:selectOneMenu value="#{admin.meta.artifactCatgory}">
+							<f:selectItem itemLabel="Select One" itemValue="" />
+							<f:selectItem itemLabel="project" itemValue="project" />
+							<f:selectItem itemLabel="webservice" itemValue="webservice" />
+							<f:selectItem itemLabel="standalone" itemValue="standalone" />
+							<f:selectItem itemLabel="ui" itemValue="ui" />
+							<f:selectItem itemLabel="utility" itemValue="utility" />
+							<f:selectItem itemLabel="configuration" itemValue="configuration" />
+							<f:selectItem itemLabel="resources" itemValue="resources" />
+							<f:selectItem itemLabel="other" itemValue="other" />
+						</p:selectOneMenu>
+						
+						<p:outputLabel
+							value="Top level xml schema name (only applicable for webservices eg: AuditServiceWSDLTypes.xsd)" />
+						<p:inputText value="#{admin.meta.topLevelXmlSchema}" />
+						
+						
+						<p:commandButton action="#{admin.save}" value="save" />
+					</p:panelGrid>
+				</p:tab>
+			</p:tabView>
+		</h:form>
+	</ui:define>
+</ui:composition>

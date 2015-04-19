@@ -1,0 +1,469 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	template="layouts/view.xhtml">
+	<ui:define name="main">
+		<h:form>
+			<p:growl id="messages" showDetail="true" />
+			<h2>#{viewArtifact.artifact.artifactId}
+				(#{viewArtifact.artifact.version})</h2>
+			<p:tabView>
+				<p:tab title="Artifact Details">
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Group Id" />
+						<p:outputLabel value="#{viewArtifact.artifact.groupId}" />
+						<p:outputLabel value="Artifact Id" />
+						<p:outputLabel value="#{viewArtifact.artifact.artifactId}" />
+						<p:outputLabel value="Version" />
+						<p:outputLabel value="#{viewArtifact.artifact.version}" />
+						<p:outputLabel value="Classifier" />
+						<p:outputLabel value="#{viewArtifact.artifact.classifier}" />
+						<p:outputLabel value="Artifact category" />
+						<p:outputLabel
+							value="#{viewArtifact.artifactConfig.artifactCategory}" />
+						<p:outputLabel value="Package Manager" />
+						<p:outputLabel
+							value="#{viewArtifact.artifactConfig.artifactFamily}" />
+						<p:outputLabel value="Licence" />
+						<p:outputLabel value="#{viewArtifact.artifactConfig.licence}" />
+						<p:outputLabel value="Licence URL" />
+						<p:outputLabel value="#{viewArtifact.artifactConfig.licenceUrl}" />
+						<p:outputLabel value="Licence text" />
+						<p:outputLabel value="#{viewArtifact.artifactConfig.licenceText}" />
+					</p:panelGrid>
+
+
+					<c:if
+						test="#{viewArtifact.artifactConfig.artifactFamily eq 'maven'}">
+						<p:spacer height="15"></p:spacer>
+						<p:fieldset legend="Maven artifact co-ordinates" toggleable="true">
+							<b> <pre>
+                                 &lt;dependency>
+                                    &lt;groupId><p:outputLabel
+										value="#{viewArtifact.artifact.groupId}" />&lt;/groupId>
+                                    &lt;artifactId><p:outputLabel
+										value="#{viewArtifact.artifact.artifactId}" />&lt;/artifactId>
+                                    &lt;version><p:outputLabel
+										value="#{viewArtifact.artifact.version}" />&lt;/version>
+                                &lt;/dependency>
+                            </pre>
+							</b>
+						</p:fieldset>
+					</c:if>
+
+					<p:spacer height="5"></p:spacer>
+					<p:fieldset legend="This artifact depends on (dependencies)" toggleable="true">
+						<p:dataTable id="deps" var="dep"
+							value="#{viewArtifact.artifact.children}" style="width:100%">
+
+							<p:column>
+								<f:facet name="header">  
+                    Maven Group id 
+            </f:facet>
+								<h:outputText value="#{dep.groupId}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Maven Artifact id 
+            </f:facet>
+								<h:outputText value="#{dep.artifactId}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Maven Dependency Version 
+            </f:facet>
+								<h:outputText value="#{dep.version}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Maven Dependency Classifier
+            </f:facet>
+								<h:outputText value="#{dep.classifier}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Maven Dependency Scope
+            </f:facet>
+								<h:outputText value="#{dep.scope}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Optional 
+            </f:facet>
+								<h:outputText value="#{dep.optional}" />
+							</p:column>
+
+							<p:column>
+								<p:button
+									outcome="viewArtifactDetail.xhtml?groupId=#{dep.groupId}&amp;artifactId=#{dep.artifactId}&amp;version=#{dep.version}"
+									icon="ui-icon-search" title="View this artifact">
+								</p:button>
+							</p:column>
+
+
+						</p:dataTable>
+						</p:fieldset>
+
+					<p:spacer height="5"></p:spacer>
+					<p:fieldset legend="This artifact is used by" toggleable="true">
+						<p:dataTable id="dependees" var="dep"
+							value="#{viewArtifact.dependees}" style="width:100%">
+
+							<p:column>
+								<f:facet name="header">  
+                    Maven Group id 
+            </f:facet>
+								<h:outputText value="#{dep.groupId}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Maven Artifact id 
+            </f:facet>
+								<h:outputText value="#{dep.artifactId}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Maven Dependency Version 
+            </f:facet>
+								<h:outputText value="#{dep.version}" />
+							</p:column>
+							<p:column>
+								<p:button
+									outcome="viewArtifactDetail.xhtml?groupId=#{dep.groupId}&amp;artifactId=#{dep.artifactId}&amp;version=#{dep.version}"
+									icon="ui-icon-search" title="View this artifact">
+								</p:button>
+							</p:column>
+						</p:dataTable>
+						</p:fieldset>
+					<p:spacer height="10"></p:spacer>
+
+					<c:if
+						test="#{viewArtifact.artifactConfig.artifactFamily eq 'maven'}">
+						<p:fieldset legend="pom.xml (raw contents)" toggleable="true">
+							<pre>
+              #{viewArtifact.artifactScmDetail.specificationFileContent}
+              </pre>
+						</p:fieldset>
+					</c:if>
+				</p:tab>
+				<p:tab title="Dependency Graph">
+					<p:mindmap value="#{viewArtifact.dependencyTree}"
+						style="width:100%;height:700px;border:1px solid black;">
+					</p:mindmap>
+				</p:tab>
+				<p:tab title="SCM Details">
+					<p:panelGrid columns="2">
+						<p:outputLabel value="SCM Source Location" />
+						<p:outputLabel value="#{viewArtifact.artifactScmDetail.scmPath}" />
+						<p:outputLabel value="SCM Revision" />
+						<p:outputLabel value="#{viewArtifact.artifactScmDetail.revision}" />
+					</p:panelGrid>
+					<p:spacer height="5"></p:spacer>
+					<p:dataTable id="changesets" var="cs"
+						value="#{viewArtifact.changeSets}" paginator="true" rows="30"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,20,30" style="width:100%">
+						<f:facet name="header">
+                            SCM Log
+                        </f:facet>
+						<p:column style="width:5%">
+							<p:rowToggler />
+						</p:column>
+						<p:column>
+							<f:facet name="header">  
+                                    Revision 
+                                </f:facet>
+							<h:outputText value="#{cs.revision} " />
+						</p:column>
+
+						<p:column>
+							<f:facet name="header">  
+                                    Commit date 
+                                </f:facet>
+							<h:outputText value="#{cs.commitDate} " />
+						</p:column>
+
+						<p:column>
+							<f:facet name="header">  
+                                    Committer 
+                                </f:facet>
+							<h:outputText value="#{cs.committer} " />
+						</p:column>
+
+						<p:column>
+							<f:facet name="header">  
+                                    Message 
+                                </f:facet>
+							<h:outputText value="#{cs.commitMessage} " />
+						</p:column>
+						<p:rowExpansion>
+							<p:dataTable id="changesetentries" var="cse"
+								value="#{cs.entries}" paginator="true" rows="10"
+								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+								rowsPerPageTemplate="5,10,15,50" style="width:100%">
+								<p:column>
+									<f:facet name="header">  
+                                    Path 
+                                </f:facet>
+									<h:outputText value="#{cse.file} " />
+								</p:column>
+								<p:column>
+									<f:facet name="header">  
+                                    Change type 
+                                </f:facet>
+									<h:outputText value="#{cse.changeType} " />
+								</p:column>
+								<p:column>
+									<f:facet name="header">  
+                                    View Changes 
+                                </f:facet>
+									<p:commandButton
+										actionListener="#{viewArtifact.diff(cs,cse)}"
+										icon="ui-icon-search" title="View diff">
+									</p:commandButton>
+								</p:column>
+							</p:dataTable>
+						</p:rowExpansion>
+					</p:dataTable>
+				</p:tab>
+				<p:tab title="Source Committer Contributions">
+					<p:pieChart type="pie" id="custom" value="#{viewArtifact.pie}"
+						legendPosition="e" fill="true" showDataLabels="true"
+						title="Author contribution to the source code"
+						style="width:600px;height:400px" sliceMargin="5" diameter="250" />
+				</p:tab>
+				<p:tab title="Features/Issues fixed">
+					<p:dataTable id="features" var="cs"
+						value="#{viewArtifact.features}" paginator="false" rows="30"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,20,30" style="width:100%">
+						<p:column>
+							<f:facet name="header">  
+                                    ID 
+                                </f:facet>
+							<h:outputText value="#{cs.featureId} " />
+						</p:column>
+						<p:column>
+							<f:facet name="header">  
+                                    Summary 
+                                </f:facet>
+							<h:outputText value="#{cs.featureTitle} " />
+						</p:column>
+						<p:column>
+							<f:facet name="header">  
+                                    Created Date 
+                                </f:facet>
+							<h:outputText value="#{cs.featureCreatedDate} " />
+						</p:column>
+						<p:column>
+							<f:facet name="header">  
+                                    Reporter 
+                                </f:facet>
+							<h:outputText value="#{cs.featureCreatedBy} " />
+						</p:column>
+
+					</p:dataTable>
+				</p:tab>
+				<p:tab title="Reported/Known issues">
+					<p:panel id="issues">
+						<p:dataTable id="reportedIssues" var="cse"
+							value="#{viewArtifact.artifact.issues}" paginator="true"
+							rows="75"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							rowsPerPageTemplate="50,100,200,300"
+							emptyMessage="No reported issues.">
+							<p:column>
+								<f:facet name="header">  
+                                    Issue Id 
+                                </f:facet>
+								<h:outputText value="#{cse.issueId}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                                    Issue Title 
+                                </f:facet>
+								<h:outputText value="#{cse.issueTitle}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                                    Issue Url 
+                                </f:facet>
+								<h:outputText value="#{cse.issueUrl}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                                    Issue Description 
+                                </f:facet>
+								<h:outputText value="#{cse.issueDescription}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                                Reporter                        
+                            </f:facet>
+								<h:outputText value="#{cse.reporter}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                                    Issue Reported Date 
+                                </f:facet>
+								<h:outputText value="#{cse.reportedDate}" />
+							</p:column>
+						</p:dataTable>
+					</p:panel>
+				</p:tab>
+				<p:tab title="Release timeline">
+					<h3>Artifact Release Timeline of
+						#{viewArtifact.artifact.artifactId} (Zoom in/out to see the dates)</h3>
+					<pe:timeline id="timeline" value="#{viewArtifact.timelineModel}"
+						height="750px" selectable="true" zoomable="true" moveable="true"
+						stackEvents="true" axisOnTop="true" eventStyle="box"
+						showCurrentTime="true" showNavigation="false" zoomMin="100">
+					</pe:timeline>
+				</p:tab>
+				<p:tab title="Dependency Deltas">
+					<p:dataTable id="deltas" var="cse" value="#{viewArtifact.deltas}">
+						<p:column>
+							<f:facet name="header">  
+                                    Deltas from previous version of this artifact:  #{viewArtifact.prevArtifact.artifactId} (#{viewArtifact.prevArtifact.version})
+                                </f:facet>
+							<b><h:outputText value="#{cse}" /></b>
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+				<p:tab title="Packages">
+					<p:dataTable id="cm" var="cse"
+						value="#{viewArtifact.artifact.packages}" paginator="true"
+						rows="75"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="50,100,200,300"
+						emptyMessage="No Packages found for this artifact!">
+						<p:column>
+							<f:facet name="header">  
+                                    Package name(s) 
+                                </f:facet>
+							<h:outputText value="#{cse.name}" />
+						</p:column>
+						<p:column>
+							<f:facet name="header">  
+                                    Package location(s) 
+                                </f:facet>
+							<h:outputText value="#{cse.location}" />
+						</p:column>
+						<p:column>
+							<f:facet name="header">  
+                                    Package type 
+                                </f:facet>
+							<h:outputText value="#{cse.packageType}" />
+						</p:column>
+					</p:dataTable>
+
+				</p:tab>
+				<p:tab title="Rate &amp; Follow"
+					rendered="#{sessionScope.user != null}" id="rf">
+					<p:spacer height="3"></p:spacer>
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Do you want to rate this artifact?"
+							rendered="#{viewArtifact.canRate}" />
+						<p:outputLabel value="You already rated this artifact"
+							rendered="#{!viewArtifact.canRate}" />
+						<p:rating value="#{viewArtifact.rating}" cancel="true"
+							readonly="#{!viewArtifact.canRate}" id="rate">
+							<p:ajax event="rate" listener="#{viewArtifact.onrate}"
+								update=":#{p:component('messages')} :#{p:component('basicDetails')}" />
+						</p:rating>
+
+						<p:outputLabel value="Follow any versions of this artifact" />
+						<p:selectBooleanCheckbox
+							value="#{viewArtifact.followingAnyVersion}">
+							<p:ajax
+								update=":#{p:component('followers')} :#{p:component('rf')}"
+								listener="#{viewArtifact.onFollowAnyVersion}" />
+						</p:selectBooleanCheckbox>
+
+						<p:outputLabel value="Follow this version of artifact" />
+						<p:selectBooleanCheckbox
+							value="#{viewArtifact.followingThisVersion}">
+							<p:ajax
+								update=":#{p:component('followers')} :#{p:component('rf')}"
+								listener="#{viewArtifact.onFollowThisVersion}" />
+						</p:selectBooleanCheckbox>
+					</p:panelGrid>
+					<p:spacer height="20"></p:spacer>
+				</p:tab>
+
+				<p:tab title="Report an issue"
+					rendered="#{sessionScope.user != null}" id="issue">
+					<p:spacer height="3"></p:spacer>
+					<p:panelGrid columns="1">
+						<p:inputText value="#{viewArtifact.issueId}" size="90"
+							placeholder="Issue id (eg: JIRA Id)" />
+						<p:inputText value="#{viewArtifact.issueUrl}" size="90"
+							placeholder="Issue URL (eg: JIRA URL)" />
+						<p:inputText value="#{viewArtifact.issueTitle}" size="90"
+							placeholder="Issue Title" />
+						<p:inputTextarea value="#{viewArtifact.issueDescription}"
+							rows="10" cols="90"
+							placeholder="Issue descrption (steps to reproduce etc)" />
+						<p:commandButton action="#{viewArtifact.reportIssue}"
+							value="Report this issue" update=":#{p:component('issues')}"></p:commandButton>
+					</p:panelGrid>
+				</p:tab>
+			</p:tabView>
+		</h:form>
+	</ui:define>
+	<ui:define name="right">
+		<p:panel id="basicDetails">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Release Date:" />
+				<p:outputLabel value="#{viewArtifact.releaseDate}" />
+				<p:outputLabel value="Average Release Duration:" />
+				<p:outputLabel value="#{viewArtifact.averageReleaseDuration} days" />
+				<p:outputLabel value="Licence:" />
+				<p:outputLabel value="#{viewArtifact.artifactConfig.licence}" />
+				<p:outputLabel value="Rating:" />
+				<p:rating value="#{viewArtifact.artifact.rating}" readonly="true" />
+				<p:outputLabel value="Latest known version:" />
+				<a
+					href="viewArtifactDetail.do?groupId=#{viewArtifact.artifact.groupId}&amp;artifactId=#{viewArtifact.artifact.artifactId}&amp;version=#{viewArtifact.latestArtifactVersion}">
+					#{viewArtifact.latestArtifactVersion}</a>
+				<p:outputLabel value="Version lag by:" />
+				<p:outputLabel value="#{viewArtifact.lagBy} versions" />
+				<p:outputLabel value="Previous version:" />
+				<a
+					href="viewArtifactDetail.do?groupId=#{viewArtifact.prevArtifact.groupId}&amp;artifactId=#{viewArtifact.prevArtifact.artifactId}&amp;version=#{viewArtifact.prevArtifact.version}">
+					#{viewArtifact.prevArtifact.version}</a>
+			</p:panelGrid>
+		</p:panel>
+		<p:spacer height="10"></p:spacer>
+		<p:panel header="People following this artifact" id="followers">
+			<p:dataTable id="foll" var="cse" value="#{viewArtifact.followers}"
+				paginator="false" rows="75"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="50,100,200,300" emptyMessage="No followers.">
+				<p:column>
+					<f:facet name="header">  
+                                    Full Name 
+                                </f:facet>
+					<h:outputText value="#{cse.fullName}" />
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+		<p:spacer height="10"></p:spacer>
+		<p:panel header="Committers to this artifact version">
+			<p:dataTable id="cm" var="cse" value="#{viewArtifact.committers}"
+				paginator="false">
+				<p:column>
+					<f:facet name="header">  
+                                    Author (SCM Ids)
+                                </f:facet>
+					<h:outputText value="#{cse}" />
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,2680 @@
+{
+   "expand":"renderedFields,names,schema,transitions,operations,editmeta,changelog",
+   "id":"258251",
+   "self":"http://jira.qif.sita.aero/rest/api/latest/issue/258251",
+   "key":"OMAN-196",
+   "fields":{
+      "progress":{
+         "progress":0,
+         "total":0
+      },
+      "summary":"Oman Authentication and Authorisation feature",
+      "timetracking":{
+
+      },
+      "issuetype":{
+         "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/9",
+         "id":"9",
+         "description":"Logged enhancement/change request",
+         "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/improvement.png",
+         "name":"Enhancement",
+         "subtask":false
+      },
+      "timespent":null,
+      "customfield_12350":null,
+      "reporter":{
+         "self":"http://jira.qif.sita.aero/rest/api/2/user?username=ebhargava",
+         "name":"ebhargava",
+         "emailAddress":"Eisha.Bhargava@sita.aero",
+         "avatarUrls":{
+            "16x16":"http://jira.qif.sita.aero/secure/useravatar?size=xsmall&avatarId=10122",
+            "24x24":"http://jira.qif.sita.aero/secure/useravatar?size=small&avatarId=10122",
+            "32x32":"http://jira.qif.sita.aero/secure/useravatar?size=medium&avatarId=10122",
+            "48x48":"http://jira.qif.sita.aero/secure/useravatar?avatarId=10122"
+         },
+         "displayName":"Eisha Bhargava",
+         "active":true
+      },
+      "customfield_10141":null,
+      "updated":"2014-10-16T17:56:52.000+0000",
+      "created":"2013-10-10T12:02:56.000+0000",
+      "priority":{
+         "self":"http://jira.qif.sita.aero/rest/api/2/priority/3",
+         "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/major.png",
+         "name":"Major",
+         "id":"3"
+      },
+      "description":"*Oman Authentication and Authorisation feature*\r\n\r\n*Description*\r\n\r\nThe Authentication and Authorisation Service is a common component used by other system components to access authorisation and authentication functions. \r\n\r\n- Authentication & Authorisation Service definition, specification and delivery\r\n- System management(User Management UI, LDAP/AD, Permissions based Location Configuration)\r\n\r\n\r\n\r\n\t\t\t\t\t\t\r\n*Functional Requirement*\r\n\r\n\r\n*Technical Requirement*\r\n\r\n\r\n\r\n*Out of Scope*\r\n\r\n\r\n\r\n*Assumptions*\r\n\r\n\r\n*Acceptance Criteria:*\r\n\r\n\r\n*Definition of Done:FEATURE*\r\n\r\n||Definition of Done|| Required||Status||Verified By ||Date ||Comments||\r\n|Help Document and User Guide is Updated|(/)| | | | |\r\n|Functional Spec Updated|(/)| | | | |\r\n|Feature spreadsheet Updated|(/)| | | | |\r\n|Requirements Tracebility Matrix is Updated| (/)| | | | |\r\n|Content for Managed Service Guide captured|(/)| | | | |\r\n|Related NFR's are met if any(performance, security, concurrent users etc.) |(/)| | | | |\r\n|Functional Tests are automated|(/)| | | | |\r\n|Baseline Estimate|(/)| | | | |\r\n|Actual Effort|(/)| | | | |",
+      "customfield_12550":"169041",
+      "customfield_12551":"87083",
+      "issuelinks":[
+         {
+            "id":"144943",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144943",
+            "type":{
+               "id":"10030",
+               "name":"Causes",
+               "inward":"is caused by",
+               "outward":"causes",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10030"
+            },
+            "outwardIssue":{
+               "id":"284365",
+               "key":"GSLSA-3301",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/284365",
+               "fields":{
+                  "summary":"Oman | Setting up a VM in the AD domain",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/6",
+                     "description":"The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/closed.png",
+                     "name":"Closed",
+                     "id":"6",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/3",
+                        "id":3,
+                        "key":"done",
+                        "colorName":"green",
+                        "name":"Complete"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/3",
+                     "id":"3",
+                     "description":"A task that needs to be done.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/task.png",
+                     "name":"Task",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144244",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144244",
+            "type":{
+               "id":"10030",
+               "name":"Causes",
+               "inward":"is caused by",
+               "outward":"causes",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10030"
+            },
+            "outwardIssue":{
+               "id":"283549",
+               "key":"OMAN-1759",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283549",
+               "fields":{
+                  "summary":"Security | Authorization | Modify/Tweak the VPD session initialization with the correct user principals.",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"149641",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/149641",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"290155",
+               "key":"GSLSA-3468",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/290155",
+               "fields":{
+                  "summary":"Unable to ping gsldev135.gsl.fab.eng.sita.aero from gsldev151 (or rather anywhere)",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/6",
+                     "description":"The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/closed.png",
+                     "name":"Closed",
+                     "id":"6",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/3",
+                        "id":3,
+                        "key":"done",
+                        "colorName":"green",
+                        "name":"Complete"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/1",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/blocker.png",
+                     "name":"Blocker",
+                     "id":"1"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/1",
+                     "id":"1",
+                     "description":"A problem which impairs or prevents the functions of the product.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/bug.png",
+                     "name":"Bug",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144942",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144942",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"284363",
+               "key":"GSLSA-3299",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/284363",
+               "fields":{
+                  "summary":"Oman | Active Directory installation and setup",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/6",
+                     "description":"The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/closed.png",
+                     "name":"Closed",
+                     "id":"6",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/3",
+                        "id":3,
+                        "key":"done",
+                        "colorName":"green",
+                        "name":"Complete"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/3",
+                     "id":"3",
+                     "description":"A task that needs to be done.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/task.png",
+                     "name":"Task",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"146108",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/146108",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"285746",
+               "key":"GSLSA-3331",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/285746",
+               "fields":{
+                  "summary":"Windows client VM set up",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/6",
+                     "description":"The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/closed.png",
+                     "name":"Closed",
+                     "id":"6",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/3",
+                        "id":3,
+                        "key":"done",
+                        "colorName":"green",
+                        "name":"Complete"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/3",
+                     "id":"3",
+                     "description":"A task that needs to be done.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/task.png",
+                     "name":"Task",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"146122",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/146122",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"285777",
+               "key":"GSLSA-3333",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/285777",
+               "fields":{
+                  "summary":"Cannot set the service principal on the Active Directory (10.70.101.149)",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/6",
+                     "description":"The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/closed.png",
+                     "name":"Closed",
+                     "id":"6",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/3",
+                        "id":3,
+                        "key":"done",
+                        "colorName":"green",
+                        "name":"Complete"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/3",
+                     "id":"3",
+                     "description":"A task that needs to be done.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/task.png",
+                     "name":"Task",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"147223",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/147223",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"287075",
+               "key":"GSLSA-3381",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/287075",
+               "fields":{
+                  "summary":"Java (JDK 1.7) needs to be installed in Client VM 10.70.101.151",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/6",
+                     "description":"The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/closed.png",
+                     "name":"Closed",
+                     "id":"6",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/3",
+                        "id":3,
+                        "key":"done",
+                        "colorName":"green",
+                        "name":"Complete"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/3",
+                     "id":"3",
+                     "description":"A task that needs to be done.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/task.png",
+                     "name":"Task",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"147483",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/147483",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"287388",
+               "key":"GSLSA-3391",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/287388",
+               "fields":{
+                  "summary":"Trying to generate a KErberos Service Ticket on gsldev151 and getting an error",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/6",
+                     "description":"The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/closed.png",
+                     "name":"Closed",
+                     "id":"6",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/3",
+                        "id":3,
+                        "key":"done",
+                        "colorName":"green",
+                        "name":"Complete"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/3",
+                     "id":"3",
+                     "description":"A task that needs to be done.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/task.png",
+                     "name":"Task",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"148967",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/148967",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"289329",
+               "key":"GSLSA-3443",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/289329",
+               "fields":{
+                  "summary":"Lock down the SVN access to the following users",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/6",
+                     "description":"The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/closed.png",
+                     "name":"Closed",
+                     "id":"6",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/3",
+                        "id":3,
+                        "key":"done",
+                        "colorName":"green",
+                        "name":"Complete"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/3",
+                     "id":"3",
+                     "description":"A task that needs to be done.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/task.png",
+                     "name":"Task",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"146331",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/146331",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"286049",
+               "key":"OMAN-2220",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/286049",
+               "fields":{
+                  "summary":"Security | Authentication & Authorization | Publish the allowed set of permissions in our system to the customers as part of a document.",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+                     "description":"The issue is open and ready for the assignee to start work on it.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+                     "name":"Open",
+                     "id":"1",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+                        "id":2,
+                        "key":"new",
+                        "colorName":"blue-gray",
+                        "name":"New"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144939",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144939",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"284359",
+               "key":"OMAN-1961",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/284359",
+               "fields":{
+                  "summary":"Security | Authentication and Authorization | Create a user identification table",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+                     "description":"The issue is open and ready for the assignee to start work on it.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+                     "name":"Open",
+                     "id":"1",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+                        "id":2,
+                        "key":"new",
+                        "colorName":"blue-gray",
+                        "name":"New"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"148278",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/148278",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"288416",
+               "key":"OMAN-2599",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/288416",
+               "fields":{
+                  "summary":"Security | Authentication & Authorization | Sign out webservice",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+                     "description":"The issue is open and ready for the assignee to start work on it.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+                     "name":"Open",
+                     "id":"1",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+                        "id":2,
+                        "key":"new",
+                        "colorName":"blue-gray",
+                        "name":"New"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"170587",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/170587",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"276304",
+               "key":"OMAN-683",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/276304",
+               "fields":{
+                  "summary":"Authorization and Authentication using Single Sign On Implmentation",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/3",
+                     "description":"This issue is being actively worked on at the moment by the assignee.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/inprogress.png",
+                     "name":"In Progress",
+                     "id":"3",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144228",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144228",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283035",
+               "key":"OMAN-1646",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283035",
+               "fields":{
+                  "summary":"POC - Use Spring Kerberos Extensions for Authentication",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144229",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144229",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283036",
+               "key":"OMAN-1647",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283036",
+               "fields":{
+                  "summary":"POC - Use Spring Security for Password Digest Authentication",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144230",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144230",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283037",
+               "key":"OMAN-1648",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283037",
+               "fields":{
+                  "summary":"POC - Use Tomcat for Kerberos Authentication",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144242",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144242",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283166",
+               "key":"OMAN-1657",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283166",
+               "fields":{
+                  "summary":"Security | Set up the SVN project structure",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144231",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144231",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283168",
+               "key":"OMAN-1658",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283168",
+               "fields":{
+                  "summary":"Security | Environment set up",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144233",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144233",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283173",
+               "key":"OMAN-1660",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283173",
+               "fields":{
+                  "summary":"Security | Authorization | Set up Webservice Operation level permissions",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144232",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144232",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283175",
+               "key":"OMAN-1661",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283175",
+               "fields":{
+                  "summary":"Security | User/Roles Retrieval Service from LDAP ",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144234",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144234",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283216",
+               "key":"OMAN-1681",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283216",
+               "fields":{
+                  "summary":"Security | Authorization | Interceptor to perform the authorization",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144236",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144236",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283218",
+               "key":"OMAN-1682",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283218",
+               "fields":{
+                  "summary":"Security | Authorization | Web xml security constraints",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144235",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144235",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283220",
+               "key":"OMAN-1683",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283220",
+               "fields":{
+                  "summary":"Security | Authentication | Switch schemes based on the context",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144241",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144241",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283271",
+               "key":"OMAN-1691",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283271",
+               "fields":{
+                  "summary":"Security | Documentation and userguide",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"145615",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/145615",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"285054",
+               "key":"OMAN-2134",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/285054",
+               "fields":{
+                  "summary":"Security | Authentication & Authorization | Create API for Security framework",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"146323",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/146323",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"286040",
+               "key":"OMAN-2218",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/286040",
+               "fields":{
+                  "summary":"Security | Authentication & Authorization | Create User Retrieval Service to retrueve the user from Active Directory",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"146324",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/146324",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"286042",
+               "key":"OMAN-2219",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/286042",
+               "fields":{
+                  "summary":"Security | Authentication & Authorization | Identify and Agree on the Active Directory object structure",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"148273",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/148273",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"288412",
+               "key":"OMAN-2598",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/288412",
+               "fields":{
+                  "summary":"Username/Password based authentication handler against LDAP/AD",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144237",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144237",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283258",
+               "key":"OMAN-1687",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283258",
+               "fields":{
+                  "summary":"Security | Authentication webservice XML schema/wsdl design.",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144238",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144238",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283259",
+               "key":"OMAN-1688",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283259",
+               "fields":{
+                  "summary":"Security | User retrieval | Optimization",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144239",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144239",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283260",
+               "key":"OMAN-1689",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283260",
+               "fields":{
+                  "summary":"Security | \"Kerberised\" Webservice client ",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144240",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144240",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283263",
+               "key":"OMAN-1690",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283263",
+               "fields":{
+                  "summary":"Security | Authentication webservice implementation",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"144246",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/144246",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"283549",
+               "key":"OMAN-1759",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/283549",
+               "fields":{
+                  "summary":"Security | Authorization | Modify/Tweak the VPD session initialization with the correct user principals.",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"147224",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/147224",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"287076",
+               "key":"OMAN-2369",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/287076",
+               "fields":{
+                  "summary":"Identity Token Expiry/Timeout strategy implementation",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"147225",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/147225",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"287077",
+               "key":"OMAN-2370",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/287077",
+               "fields":{
+                  "summary":"Identity Token expiration trigger",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10002",
+                     "description":"Verify by QA or other SITA body ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/generic.png",
+                     "name":"Verified",
+                     "id":"10002",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"170591",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/170591",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"307944",
+               "key":"OMAN-5621",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/307944",
+               "fields":{
+                  "summary":"Implementation of security related changes and service upgradation in Audit and Referral GUI.",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10004",
+                     "description":"Delivered to customer ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/email.png",
+                     "name":"Delivered",
+                     "id":"10004",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/1",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/blocker.png",
+                     "name":"Blocker",
+                     "id":"1"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"170589",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/170589",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"308717",
+               "key":"OMAN-5656",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/308717",
+               "fields":{
+                  "summary":"Integration with security for Event manager UI",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10004",
+                     "description":"Delivered to customer ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/email.png",
+                     "name":"Delivered",
+                     "id":"10004",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/3",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/major.png",
+                     "name":"Major",
+                     "id":"3"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"170588",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/170588",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"304675",
+               "key":"OMAN-5197",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/304675",
+               "fields":{
+                  "summary":"Security implementation - Web Services ",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10004",
+                     "description":"Delivered to customer ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/email.png",
+                     "name":"Delivered",
+                     "id":"10004",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"173837",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/173837",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "outwardIssue":{
+               "id":"316663",
+               "key":"OMAN-6359",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/316663",
+               "fields":{
+                  "summary":"Implementation of \"Unqualified\" user role permission in Referral GUI.",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10004",
+                     "description":"Delivered to customer ",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/email.png",
+                     "name":"Delivered",
+                     "id":"10004",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"166493",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/166493",
+            "type":{
+               "id":"10020",
+               "name":"Dependency",
+               "inward":"is required by",
+               "outward":"is dependent on",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10020"
+            },
+            "inwardIssue":{
+               "id":"310358",
+               "key":"OMAN-5962",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/310358",
+               "fields":{
+                  "summary":"Test security framework in a multinode environment",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+                     "description":"The issue is open and ready for the assignee to start work on it.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+                     "name":"Open",
+                     "id":"1",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+                        "id":2,
+                        "key":"new",
+                        "colorName":"blue-gray",
+                        "name":"New"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/3",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/major.png",
+                     "name":"Major",
+                     "id":"3"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"169251",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/169251",
+            "type":{
+               "id":"10051",
+               "name":"Fixes",
+               "inward":"is fixed by",
+               "outward":"fixes",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10051"
+            },
+            "inwardIssue":{
+               "id":"308371",
+               "key":"OMAN-5649",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/308371",
+               "fields":{
+                  "summary":"RID security implementation ",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+                     "description":"The issue is open and ready for the assignee to start work on it.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+                     "name":"Open",
+                     "id":"1",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+                        "id":2,
+                        "key":"new",
+                        "colorName":"blue-gray",
+                        "name":"New"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"173165",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/173165",
+            "type":{
+               "id":"10001",
+               "name":"Related Issue",
+               "inward":"is related to",
+               "outward":"is related to",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10001"
+            },
+            "inwardIssue":{
+               "id":"317842",
+               "key":"GSLSEC-28",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/317842",
+               "fields":{
+                  "summary":"Modify the logic of deleting the \"User token\" in the database to be driven by the logout action",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+                     "description":"The issue is open and ready for the assignee to start work on it.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+                     "name":"Open",
+                     "id":"1",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+                        "id":2,
+                        "key":"new",
+                        "colorName":"blue-gray",
+                        "name":"New"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/3",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/major.png",
+                     "name":"Major",
+                     "id":"3"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/1",
+                     "id":"1",
+                     "description":"A problem which impairs or prevents the functions of the product.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/bug.png",
+                     "name":"Bug",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"169197",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/169197",
+            "type":{
+               "id":"10001",
+               "name":"Related Issue",
+               "inward":"is related to",
+               "outward":"is related to",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10001"
+            },
+            "inwardIssue":{
+               "id":"308284",
+               "key":"GSLSA-3924",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/308284",
+               "fields":{
+                  "summary":"Oman | Active Directory installation | Version: Windows 2012",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/6",
+                     "description":"The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/closed.png",
+                     "name":"Closed",
+                     "id":"6",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/3",
+                        "id":3,
+                        "key":"done",
+                        "colorName":"green",
+                        "name":"Complete"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/3",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/major.png",
+                     "name":"Major",
+                     "id":"3"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/3",
+                     "id":"3",
+                     "description":"A task that needs to be done.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/task.png",
+                     "name":"Task",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"174929",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/174929",
+            "type":{
+               "id":"10001",
+               "name":"Related Issue",
+               "inward":"is related to",
+               "outward":"is related to",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10001"
+            },
+            "inwardIssue":{
+               "id":"319880",
+               "key":"GSLSEC-30",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/319880",
+               "fields":{
+                  "summary":"Provide Security Webservice Operations for Getting the user details by token, Updating the token timestamp",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+                     "description":"The issue is open and ready for the assignee to start work on it.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+                     "name":"Open",
+                     "id":"1",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+                        "id":2,
+                        "key":"new",
+                        "colorName":"blue-gray",
+                        "name":"New"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/3",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/major.png",
+                     "name":"Major",
+                     "id":"3"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"169195",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/169195",
+            "type":{
+               "id":"10001",
+               "name":"Related Issue",
+               "inward":"is related to",
+               "outward":"is related to",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10001"
+            },
+            "inwardIssue":{
+               "id":"310353",
+               "key":"OMAN-5958",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/310353",
+               "fields":{
+                  "summary":"Test the Windows Single Sign on to the Vis User Portal",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+                     "description":"The issue is open and ready for the assignee to start work on it.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+                     "name":"Open",
+                     "id":"1",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+                        "id":2,
+                        "key":"new",
+                        "colorName":"blue-gray",
+                        "name":"New"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/3",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/major.png",
+                     "name":"Major",
+                     "id":"3"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"169194",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/169194",
+            "type":{
+               "id":"10001",
+               "name":"Related Issue",
+               "inward":"is related to",
+               "outward":"is related to",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10001"
+            },
+            "inwardIssue":{
+               "id":"310354",
+               "key":"OMAN-5959",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/310354",
+               "fields":{
+                  "summary":"Apply the correct permissions to the webservice endpoints",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+                     "description":"The issue is open and ready for the assignee to start work on it.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+                     "name":"Open",
+                     "id":"1",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+                        "id":2,
+                        "key":"new",
+                        "colorName":"blue-gray",
+                        "name":"New"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/3",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/major.png",
+                     "name":"Major",
+                     "id":"3"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"169198",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/169198",
+            "type":{
+               "id":"10001",
+               "name":"Related Issue",
+               "inward":"is related to",
+               "outward":"is related to",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10001"
+            },
+            "inwardIssue":{
+               "id":"310357",
+               "key":"OMAN-5961",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/310357",
+               "fields":{
+                  "summary":"Apply apache URL rewrite to the security webservices endpoints",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+                     "description":"The issue is open and ready for the assignee to start work on it.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+                     "name":"Open",
+                     "id":"1",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+                        "id":2,
+                        "key":"new",
+                        "colorName":"blue-gray",
+                        "name":"New"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/3",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/major.png",
+                     "name":"Major",
+                     "id":"3"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"167328",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/167328",
+            "type":{
+               "id":"10001",
+               "name":"Related Issue",
+               "inward":"is related to",
+               "outward":"is related to",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10001"
+            },
+            "inwardIssue":{
+               "id":"311365",
+               "key":"GSLSEC-15",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/311365",
+               "fields":{
+                  "summary":"Capture User Role into the User object",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+                     "description":"The issue is open and ready for the assignee to start work on it.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+                     "name":"Open",
+                     "id":"1",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+                        "id":2,
+                        "key":"new",
+                        "colorName":"blue-gray",
+                        "name":"New"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"169924",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/169924",
+            "type":{
+               "id":"10001",
+               "name":"Related Issue",
+               "inward":"is related to",
+               "outward":"is related to",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10001"
+            },
+            "inwardIssue":{
+               "id":"314493",
+               "key":"OMAN-6249",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/314493",
+               "fields":{
+                  "summary":"Refactor security presentation-client",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+                     "description":"The issue is open and ready for the assignee to start work on it.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+                     "name":"Open",
+                     "id":"1",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+                        "id":2,
+                        "key":"new",
+                        "colorName":"blue-gray",
+                        "name":"New"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/5",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/trivial.png",
+                     "name":"Trivial",
+                     "id":"5"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"169193",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/169193",
+            "type":{
+               "id":"10001",
+               "name":"Related Issue",
+               "inward":"is related to",
+               "outward":"is related to",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10001"
+            },
+            "inwardIssue":{
+               "id":"310356",
+               "key":"OMAN-5960",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/310356",
+               "fields":{
+                  "summary":"Security | Implement Locations functionality on security framework",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/3",
+                     "description":"This issue is being actively worked on at the moment by the assignee.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/inprogress.png",
+                     "name":"In Progress",
+                     "id":"3",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/2",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/critical.png",
+                     "name":"Critical",
+                     "id":"2"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"167327",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/167327",
+            "type":{
+               "id":"10001",
+               "name":"Related Issue",
+               "inward":"is related to",
+               "outward":"is related to",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10001"
+            },
+            "inwardIssue":{
+               "id":"311273",
+               "key":"GSLSEC-14",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/311273",
+               "fields":{
+                  "summary":"Securing GSL Webservices from potential replay attacks.",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/3",
+                     "description":"This issue is being actively worked on at the moment by the assignee.",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/inprogress.png",
+                     "name":"In Progress",
+                     "id":"3",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/4",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/minor.png",
+                     "name":"Minor",
+                     "id":"4"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         },
+         {
+            "id":"169196",
+            "self":"http://jira.qif.sita.aero/rest/api/2/issueLink/169196",
+            "type":{
+               "id":"10001",
+               "name":"Related Issue",
+               "inward":"is related to",
+               "outward":"is related to",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issueLinkType/10001"
+            },
+            "inwardIssue":{
+               "id":"308944",
+               "key":"GSLSEC-9",
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/308944",
+               "fields":{
+                  "summary":"Support for \"oneOfRequiredPermissions\" in GSLSecurityCheck annotation ",
+                  "status":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/status/10008",
+                     "description":"Code and associated tests are ready for review",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/up.png",
+                     "name":"Implemented",
+                     "id":"10008",
+                     "statusCategory":{
+                        "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/4",
+                        "id":4,
+                        "key":"indeterminate",
+                        "colorName":"yellow",
+                        "name":"In Progress"
+                     }
+                  },
+                  "priority":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/priority/3",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/priorities/major.png",
+                     "name":"Major",
+                     "id":"3"
+                  },
+                  "issuetype":{
+                     "self":"http://jira.qif.sita.aero/rest/api/2/issuetype/15",
+                     "id":"15",
+                     "description":"",
+                     "iconUrl":"http://jira.qif.sita.aero/images/icons/issuetypes/sales.png",
+                     "name":"Story",
+                     "subtask":false
+                  }
+               }
+            }
+         }
+      ],
+      "customfield_10092":null,
+      "customfield_10093":null,
+      "subtasks":[
+
+      ],
+      "customfield_13050":null,
+      "status":{
+         "self":"http://jira.qif.sita.aero/rest/api/2/status/1",
+         "description":"The issue is open and ready for the assignee to start work on it.",
+         "iconUrl":"http://jira.qif.sita.aero/images/icons/statuses/open.png",
+         "name":"Open",
+         "id":"1",
+         "statusCategory":{
+            "self":"http://jira.qif.sita.aero/rest/api/2/statuscategory/2",
+            "id":2,
+            "key":"new",
+            "colorName":"blue-gray",
+            "name":"New"
+         }
+      },
+      "labels":[
+         "Authentication&Authorisation",
+         "Oman",
+         "Oman-Phase-3"
+      ],
+      "customfield_12053":null,
+      "workratio":-1,
+      "customfield_11650":null,
+      "customfield_12052":null,
+      "customfield_11252":null,
+      "customfield_10252":1.96E9,
+      "customfield_10253":null,
+      "customfield_10250":null,
+      "customfield_10251":[
+         "Authentication&Authorisation"
+      ],
+      "project":{
+         "self":"http://jira.qif.sita.aero/rest/api/2/project/13680",
+         "id":"13680",
+         "key":"OMAN",
+         "name":"Oman",
+         "avatarUrls":{
+            "16x16":"http://jira.qif.sita.aero/secure/projectavatar?size=xsmall&pid=13680&avatarId=10011",
+            "24x24":"http://jira.qif.sita.aero/secure/projectavatar?size=small&pid=13680&avatarId=10011",
+            "32x32":"http://jira.qif.sita.aero/secure/projectavatar?size=medium&pid=13680&avatarId=10011",
+            "48x48":"http://jira.qif.sita.aero/secure/projectavatar?pid=13680&avatarId=10011"
+         },
+         "projectCategory":{
+            "self":"http://jira.qif.sita.aero/rest/api/2/projectCategory/10110",
+            "id":"10110",
+            "description":"Government Solution Line Software Development Group",
+            "name":"GSLSDG"
+         }
+      },
+      "environment":null,
+      "aggregateprogress":{
+         "progress":0,
+         "total":0
+      },
+      "lastViewed":"2015-04-02T16:36:41.939+0000",
+      "components":[
+
+      ],
+      "customfield_10010":null,
+      "comment":{
+         "startAt":0,
+         "maxResults":1,
+         "total":1,
+         "comments":[
+            {
+               "self":"http://jira.qif.sita.aero/rest/api/2/issue/258251/comment/725630",
+               "id":"725630",
+               "author":{
+                  "self":"http://jira.qif.sita.aero/rest/api/2/user?username=ebhargava",
+                  "name":"ebhargava",
+                  "emailAddress":"Eisha.Bhargava@sita.aero",
+                  "avatarUrls":{
+                     "16x16":"http://jira.qif.sita.aero/secure/useravatar?size=xsmall&avatarId=10122",
+                     "24x24":"http://jira.qif.sita.aero/secure/useravatar?size=small&avatarId=10122",
+                     "32x32":"http://jira.qif.sita.aero/secure/useravatar?size=medium&avatarId=10122",
+                     "48x48":"http://jira.qif.sita.aero/secure/useravatar?avatarId=10122"
+                  },
+                  "displayName":"Eisha Bhargava",
+                  "active":true
+               },
+               "body":"*Customer AD structure*\r\n\r\n----- Forwarded by Neil Jones/London/SITA/WW on 05/02/2014 12:02 -----\r\n\r\nFrom:        Samer Maslamani/Dubai/SITA/WW\r\nTo:        Neil Jones/London/SITA/WW\r\nCc:        David Halpin/Sydney/SITA/WW@SITA, Enrico Samuel/Sydney/SITA/WW@SITA, Michael Fisher/Sydney/SITA/WW@SITA, Nitish Shah <Nitish.Shah@nouveautech.co.uk>, Shoaib Khalil/Sydney/SITA/WW@SITA, Sujit Sunthankar/Sydney/SITA/WW@SITA\r\nDate:        05/02/2014 06:36\r\nSubject:        Re: Active Directory\r\n\r\n\r\n\r\nHi, please find below the response from Wadee (DGIT)\r\n\r\n------------------\r\n\r\nDear Samer,\r\n \r\nWe have one centralized AD where all ROP Locations can access and can be made available to any ROP Location in which Network is Available \r\n \r\nBest Regards,\r\n \r\nWadee Al Lawati\r\n24569622/99205206\r\n \r\nFrom: Samer.Maslamani@sita.aero [mailto:Samer.Maslamani@sita.aero] \r\nSent: Wednesday, February 05, 2014 10:27 AM\r\nTo: Wadee M Al Lawati\r\nCc: Murali.Krishnan@xe04.ey.com\r\nSubject: RE: Questions on Active Directory in DGIT\r\n \r\nThanks Wadee, please find the questions below\r\n\r\nWe are currently working on the Authentication and Authorisation mechanism which from the design study, we understand that the users are to be authenticated against the Active Directory instance for ROP. Our understanding is that there is a single centralised Active Directory instance that we are to authenticate against.\r\n\r\nCan you confirm with the customer that this is correct ?\r\nDo all locations (specifically ports and border locations) have access to a centralised AD instance?\r\nIf not what is the topology of the ROP Active Directory infrastructure?\r\nDuring the design study RL1/RL2 stated that and Active Directory instance would be made available on these sites.\r\n\r\nThanks\r\n\r\nSamer Maslamani                                                        \r\nTechnical Design Authority                                                                \r\nSITA                                                                                \r\n\r\nE-Mail:        samer.maslamani@sita.aero                                                                                \r\nDirect:           +971 4 315 1323\r\nCVS:           711 1323\r\nMobile:           +971 56 2261914\r\nAddress:  SITA|Suite 407|Oud Metha Office Building|Dubai |United Arab Emirates\r\n\r\nSamer Maslamani                                                        \r\nTechnical Design Authority                                                                \r\nSITA                                                                                \r\n\r\nE-Mail:        samer.maslamani@sita.aero                                                                                 \r\nDirect:           +971 4 315 1323\r\nCVS:           711 1323\r\nMobile:           +971 56 2261914\r\nAddress:  SITA|Suite 407|Oud Metha Office Building|Dubai |United Arab Emirates\r\n\r\n\r\n\r\nFrom:        Neil Jones/London/SITA/WW\r\nTo:        Samer Maslamani/Dubai/SITA/WW@SITA\r\nCc:        Enrico Samuel/Sydney/SITA/WW@SITA, Sujit Sunthankar/Sydney/SITA/WW@SITA, Shoaib Khalil/Sydney/SITA/WW@SITA, David Halpin/Sydney/SITA/WW@SITA, Michael Fisher/Sydney/SITA/WW@SITA, Nitish Shah <Nitish.Shah@nouveautech.co.uk>\r\nDate:        31-01-14 08:20 PM\r\nSubject:        Active Directory\r\n\r\n\r\n\r\nHi Samer,\r\n\r\nWe are currently working on the Authentication and Authorisation mechanism which from the design study, we understand that the users are to be authenticated against the Active Directory instance for ROP.\r\n\r\nAgain from the design study, my understanding is that there is a single centralised Active Directory instance that we are to authenticate against.\r\n\r\nCan you confirm with the customer that this is correct ?\r\n\r\nDo all locations (specifically ports and border locations) have access to a centralised AD instance?\r\n\r\nIf not what is the topology of the ROP Active Directory infrastructure?\r\n\r\nDuring the design study RL1/RL2 stated that and Active Directory instance would be made available on these sites.\r\n\r\nAgain, I need confirmation that this is still the expected solution.\r\n\r\nFollowing initial feedback I will be extending the SAD to include details on Authentication and Authorisation. I am currently documenting the solution based on the information available from the design study. I need to know if any changes will be necessary.\r\n\r\nregards,\r\n\r\nNeil Jones\r\nSenior Software Architect \r\nSITA Software Development (GSL)\r\nMobile: +44 7753 302857\r\nPhone: +44 1483 521 292\r\nCVS: 2061292\r\n",
+               "updateAuthor":{
+                  "self":"http://jira.qif.sita.aero/rest/api/2/user?username=ebhargava",
+                  "name":"ebhargava",
+                  "emailAddress":"Eisha.Bhargava@sita.aero",
+                  "avatarUrls":{
+                     "16x16":"http://jira.qif.sita.aero/secure/useravatar?size=xsmall&avatarId=10122",
+                     "24x24":"http://jira.qif.sita.aero/secure/useravatar?size=small&avatarId=10122",
+                     "32x32":"http://jira.qif.sita.aero/secure/useravatar?size=medium&avatarId=10122",
+                     "48x48":"http://jira.qif.sita.aero/secure/useravatar?avatarId=10122"
+                  },
+                  "displayName":"Eisha Bhargava",
+                  "active":true
+               },
+               "created":"2014-02-06T13:29:07.000+0000",
+               "updated":"2014-02-06T13:29:07.000+0000"
+            }
+         ]
+      },
+      "timeoriginalestimate":null,
+      "votes":{
+         "self":"http://jira.qif.sita.aero/rest/api/2/issue/OMAN-196/votes",
+         "votes":0,
+         "hasVoted":false
+      },
+      "fixVersions":[
+
+      ],
+      "resolution":null,
+      "resolutiondate":null,
+      "customfield_10211":null,
+      "customfield_10213":null,
+      "creator":{
+         "self":"http://jira.qif.sita.aero/rest/api/2/user?username=ebhargava",
+         "name":"ebhargava",
+         "emailAddress":"Eisha.Bhargava@sita.aero",
+         "avatarUrls":{
+            "16x16":"http://jira.qif.sita.aero/secure/useravatar?size=xsmall&avatarId=10122",
+            "24x24":"http://jira.qif.sita.aero/secure/useravatar?size=small&avatarId=10122",
+            "32x32":"http://jira.qif.sita.aero/secure/useravatar?size=medium&avatarId=10122",
+            "48x48":"http://jira.qif.sita.aero/secure/useravatar?avatarId=10122"
+         },
+         "displayName":"Eisha Bhargava",
+         "active":true
+      },
+      "customfield_10212":null,
+      "aggregatetimeoriginalestimate":null,
+      "customfield_10350":null,
+      "duedate":null,
+      "customfield_10166":null,
+      "watches":{
+         "self":"http://jira.qif.sita.aero/rest/api/2/issue/OMAN-196/watchers",
+         "watchCount":0,
+         "isWatching":false
+      },
+      "worklog":{
+         "startAt":0,
+         "maxResults":20,
+         "total":0,
+         "worklogs":[
+
+         ]
+      },
+      "customfield_10026":null,
+      "customfield_12651":null,
+      "customfield_12650":null,
+      "customfield_10552":null,
+      "assignee":{
+         "self":"http://jira.qif.sita.aero/rest/api/2/user?username=ebhargava",
+         "name":"ebhargava",
+         "emailAddress":"Eisha.Bhargava@sita.aero",
+         "avatarUrls":{
+            "16x16":"http://jira.qif.sita.aero/secure/useravatar?size=xsmall&avatarId=10122",
+            "24x24":"http://jira.qif.sita.aero/secure/useravatar?size=small&avatarId=10122",
+            "32x32":"http://jira.qif.sita.aero/secure/useravatar?size=medium&avatarId=10122",
+            "48x48":"http://jira.qif.sita.aero/secure/useravatar?avatarId=10122"
+         },
+         "displayName":"Eisha Bhargava",
+         "active":true
+      },
+      "customfield_10551":null,
+      "attachment":[
+
+      ],
+      "customfield_10200":null,
+      "aggregatetimeestimate":null,
+      "customfield_12959":null,
+      "versions":[
+
+      ],
+      "customfield_12957":null,
+      "customfield_12955":null,
+      "customfield_12956":null,
+      "customfield_12953":null,
+      "timeestimate":null,
+      "customfield_12954":null,
+      "customfield_10130":null,
+      "aggregatetimespent":null
+   }
+}

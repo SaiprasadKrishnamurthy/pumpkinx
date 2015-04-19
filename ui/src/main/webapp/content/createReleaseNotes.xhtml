@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+	<ui:define name="main">
+		<h:form id="form">
+			<p:spacer height="10"></p:spacer>
+
+			<p:panel header="Create release notes">
+				<p:panelGrid columns="2">
+					<p:autoComplete id="acSimple1"
+						value="#{createRelease.selectedArtifactId}"
+						completeMethod="#{createRelease.onQuery}" size="120"
+						queryDelay="1000" cache="true"
+						placeholder="Artifact Id or version" emptyMessage="No results found"/>
+					<p:commandButton value="Get this artifact"
+						action="#{createRelease.add}" update=":#{p:component('grid')}" accesskey="S"/>
+				</p:panelGrid>
+				<p:spacer height="10"></p:spacer>
+				<p:separator></p:separator>
+				<p:panel header="Included artifacts" id="grid">
+					<p:selectManyCheckbox value="#{createRelease.artifactIds}"
+						layout="grid" columns="3">
+						<f:selectItems value="#{createRelease.allSelected}"
+							var="artifactId" itemLabel="#{artifactId}"
+							itemValue="#{artifactId}" />
+					</p:selectManyCheckbox>
+
+				</p:panel>
+				<p:separator></p:separator>
+
+				<p:spacer height="10" />
+				<p:panelGrid columns="1">
+					<p:inputText value="#{createRelease.releaseName}"
+						placeholder="Release Name" size="120" />
+					<p:calendar id="popup" value="#{createRelease.releaseDate}"
+						size="120" placeholder="Release date" />
+					<p:inputTextarea value="#{createRelease.releaseDescription}"
+						placeholder="Release Description" rows="5" cols="120" size="120" />
+					<p:inputText value="#{sessionScope.user.fullName}" size="120"
+						readonly="true" />
+					<p:commandButton value="Save" size="120"
+						action="#{createRelease.save}" />
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+		<p:spacer height="10"></p:spacer>
+	</ui:define>
+</ui:composition>

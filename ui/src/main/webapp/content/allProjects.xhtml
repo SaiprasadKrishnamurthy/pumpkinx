@@ -1,0 +1,208 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+	<ui:define name="main">
+		<h:form id="form">
+			<p:panel header="All projects">
+
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Project" />
+					<p:selectOneMenu filter="true" filterMatchMode="contains"
+						value="#{allProj.selectedProj}">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{allProj.projectNames}" />
+						<p:ajax listener="#{allProj.handleCityChange}"
+							update=":#{p:component('results1')}"></p:ajax>
+					</p:selectOneMenu>
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+
+		<p:separator></p:separator>
+		<p:spacer height="10"></p:spacer>
+		<h:form id="results1">
+
+			<p:dialog
+				header="Project: #{allProj.selectedProjectDetail.artifactId} (#{allProj.selectedProjectDetail.version})"
+				widgetVar="info1" dynamic="true" appendTo="@parent" width="900"
+				height="500" maximizable="true">
+				<p:tabView id="tabView" dynamic="true" cache="false">
+					<p:tab title="Maven dependencies">
+						<p:tabView>
+							<p:tab title="Graph view">
+								<p:mindmap value="#{allProj.rootMaven}"
+									style="width:150%;height:700px;border:1px solid black;">
+								</p:mindmap>
+							</p:tab>
+
+							<p:tab title="Table view">
+								<p:dataTable id="deps" var="dep"
+									value="#{allProj.selectedProjectDetail.children}"
+									paginator="true" rows="10"
+									paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+									rowsPerPageTemplate="5,10,15,50" style="width:100%">
+									<f:facet name="header">  
+                                Dependencies
+                            </f:facet>
+
+									<p:column>
+										<f:facet name="header">  
+                    Maven group id 
+            </f:facet>
+										<h:outputText value="#{dep.groupId}" />
+									</p:column>
+									<p:column>
+										<f:facet name="header">  
+                    Maven artifact id 
+            </f:facet>
+										<h:outputText value="#{dep.artifactId}" />
+									</p:column>
+									<p:column>
+										<f:facet name="header">  
+                    Maven version 
+            </f:facet>
+										<h:outputText value="#{dep.version}" />
+									</p:column>
+									<p:column>
+									<f:facet name="header">  
+                    Maven scope 
+            </f:facet>
+										<h:outputText value="#{dep.scope}" />
+									</p:column>
+									<p:column>
+										<f:facet name="header">  
+                    Maven classifier 
+            </f:facet>
+										<h:outputText value="#{dep.classifier}" />
+									</p:column>
+								</p:dataTable>
+
+
+							</p:tab>
+						</p:tabView>
+
+
+					</p:tab>
+					<p:tab title="Services available">
+						<p:dataTable id="services" var="service"
+							value="#{allProj.allFilteredMavenIdentifiers}" paginator="true"
+							rows="10"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							rowsPerPageTemplate="5,10,15" style="width:100%">
+							<f:facet name="header">  
+                                Webservices available
+                            </f:facet>
+
+							<p:column>
+								<f:facet name="header">  
+                    Maven group id 
+            </f:facet>
+								<h:outputText value="#{service.groupId}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Maven artifact id 
+            </f:facet>
+								<h:outputText value="#{service.artifactId}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Maven version 
+            </f:facet>
+								<h:outputText value="#{service.version}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Service version 
+            </f:facet>
+								<h:outputText value="#{service.classifier}" />
+							</p:column>
+						</p:dataTable>
+					</p:tab>
+
+					<p:tab title="Release details">
+						<p:dataTable id="releases" var="_release"
+							value="#{allProj.allReleases}" paginator="true" rows="10"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							rowsPerPageTemplate="5,10,15" style="width:100%">
+							<f:facet name="header">  
+                                Release details
+                            </f:facet>
+
+							<p:column>
+								<f:facet name="header">  
+                    Release name 
+            </f:facet>
+								<h:outputText value="#{_release.releaseName}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Release date 
+            </f:facet>
+								<h:outputText value="#{_release.date}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">  
+                    Release lead 
+            </f:facet>
+								<h:outputText value="#{_release.releaseLead}" />
+							</p:column>
+
+							<p:column>
+								<f:facet name="header">  
+                    Notes 
+            </f:facet>
+								<h:outputText value="#{_release.notes}" />
+							</p:column>
+						</p:dataTable>
+					</p:tab>
+
+					<p:tab title="Change magnitude">
+						<h:form>
+							<p:tagCloud model="#{allProj.tag}">
+							</p:tagCloud>
+						</h:form>
+					</p:tab>
+				</p:tabView>
+			</p:dialog>
+			<p:dataTable id="projects" var="project"
+				value="#{allProj.projectDataModel}" paginator="true" rows="10"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15,50,100" style="width:100%"
+				rendered="#{allProj.showTabs}"
+				selection="#{allProj.selectedProjectDetail}" selectionMode="single"
+				rowKey="#{project.version}">
+
+				<p:ajax event="rowSelect" listener="#{allProj.onRowSelect}"
+					update="@parent" />
+				<f:facet name="header">  
+                                Project artifacts
+                            </f:facet>
+
+				<p:column>
+					<f:facet name="header">  
+                    Maven group id 
+            </f:facet>
+					<h:outputText value="#{project.groupId}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">  
+                    Maven artifact id 
+            </f:facet>
+					<h:outputText value="#{project.artifactId}" />
+				</p:column>
+				<p:column sortBy="version">
+					<f:facet name="header">  
+                    Maven version 
+            </f:facet>
+					<h:outputText value="#{project.version}" />
+				</p:column>
+			</p:dataTable>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

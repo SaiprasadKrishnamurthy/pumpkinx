@@ -1,0 +1,83 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+	<ui:define name="main">
+		<h:form id="form">
+			<p:panel header="File search">
+
+				<p:panelGrid columns="3">
+					<p:outputLabel value="File name (or part of file name)" />
+					<p:inputText value="#{searchFile.fileName}" size="100" />
+					<p:commandButton value="Search" action="#{searchFile.search}"
+						update="@(form)"></p:commandButton>
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+
+		<p:separator></p:separator>
+		<p:spacer height="20"></p:spacer>
+		<h:form id="results1">
+			<p:dialog
+				header="Artifact: #{searchFile.selectedSourceDetail.filePath}) - #{searchFile.selectedSourceDetail.artifactId} (#{searchFile.selectedSourceDetail.version})"
+				widgetVar="info1" dynamic="true" appendTo="@parent" width="900"
+				height="500" maximizable="true">
+				<pre>
+					#{searchFile.selectedFileContent}
+				</pre>
+			</p:dialog>
+			<p:dataTable id="searchResults" var="file"
+				value="#{searchFile.sourceDetailModel}" paginator="true" rows="50"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="50,70,100" style="width:100%"
+				selection="#{searchFile.selectedSourceDetail}"
+				selectionMode="single"
+				rowKey="#{file.groupId}#{file.artifactId}#{file.version}#{file.svnRevision}">
+
+
+
+				<p:ajax event="rowSelect" listener="#{searchFile.onRowSelect}"
+					update="@parent" />
+				<f:facet name="header">
+                                File Found in the following artifacts
+                            </f:facet>
+
+				<p:column>
+					<f:facet name="header">
+                        Maven group id
+                        </f:facet>
+					<h:outputText value="#{file.groupId}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+                        Maven artifact id
+                        </f:facet>
+					<h:outputText value="#{file.artifactId}" />
+				</p:column>
+				<p:column sortBy="sortVersion">
+					<f:facet name="header">
+                        Maven version
+                        </f:facet>
+					<h:outputText value="#{file.version}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">
+                        SVN Path
+                        </f:facet>
+					<h:outputText value="#{file.svnPath}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">
+                        File Path
+                        </f:facet>
+					<h:outputText value="#{file.filePath}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

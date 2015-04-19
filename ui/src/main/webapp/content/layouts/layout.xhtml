@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view contentType="text/html">
+
+	<h:head>
+		<f:facet name="first">
+			<meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>Pumpkin</title>
+		</f:facet>
+
+		<link type="text/css" rel="stylesheet"
+			href="#{request.contextPath}/css/default.css" />
+		<link type="text/css" rel="stylesheet"
+			href="#{request.contextPath}/css/syntaxhighlighter/syntaxhighlighter.css" />
+
+		<script language="javascript">
+			$(document).ready(
+					function() {
+						$(".ui-panelmenu-content").css("display", "block"); //shows the menuitems
+						$(".ui-panelmenu-header").addClass("ui-state-active"); //sets the submenu header to active state
+						$(".ui-icon-triangle-1-e").removeClass(
+								"ui-icon-triangle-1-e").addClass(
+								"ui-icon-triangle-1-s"); //sets the triangle icon to "expaned" version
+					});
+
+			function handleLoginRequest(xhr, status, args) {
+				if (args.validationFailed || !args.loggedIn) {
+					PF('dlg').jq.effect("shake", {
+						times : 5
+					}, 100);
+				} else {
+					PF('dlg').hide();
+					$('#loginLink').fadeOut();
+					window.location.href = window.location.href;
+				}
+			}
+		</script>
+	</h:head>
+
+	<h:body>
+		<p:layout fullPage="true">
+			<p:layoutUnit position="north" size="105" resizable="false"
+				closable="false" collapsible="false">
+				<div class="ui-widget ui-widget-header" style="">
+					<div id="bg">
+						<a href="welcome.do"><p:graphicImage value="/images/logo.jpg"
+								width="120" height="90" /></a>
+					</div>
+				</div>
+			</p:layoutUnit>
+
+			<p:layoutUnit position="south" size="25" resizable="true">
+				<center>
+					<b>Built by Sai (Under Apache V2.0 Licence) </b>
+				</center>
+			</p:layoutUnit>
+
+			<p:layoutUnit position="center">
+				<p:ajaxStatus onstart="statusDialog.show();"
+					onsuccess="statusDialog.hide();" />
+
+				<p:dialog modal="true" widgetVar="statusDialog"
+					header="Please wait.." draggable="false" closable="false">
+					<p:graphicImage value="/images/ajax-loader.gif" />
+				</p:dialog>
+
+				<h:form>
+					<p:dialog header="Login" widgetVar="dlg" resizable="false"
+						appendTo="@parent">
+						<h:panelGrid columns="2" cellpadding="5">
+							<h:outputLabel for="username" value="Username:" />
+							<p:inputText id="username" value="#{login.userId}"
+								label="username" />
+
+							<h:outputLabel for="password" value="Password:" />
+							<p:password id="password" value="#{login.password}"
+								label="password" />
+
+							<f:facet name="footer">
+								<p:commandButton value="Login" actionListener="#{login.login}"
+									oncomplete="handleLoginRequest(xhr, status, args)" />
+							</f:facet>
+						</h:panelGrid>
+					</p:dialog>
+					<p:menubar>
+					   <p:menuitem value="" url="welcome.do" icon="ui-icon-home" style="width:20px"></p:menuitem>
+						<p:submenu label="Artifacts" icon="ui-icon-document">
+							<p:menuitem value="Search" url="/content/welcome.do"
+								icon="ui-icon-search" />
+						</p:submenu>
+						<p:submenu label="Release Notes" icon="ui-icon-document">
+							 <c:if test="#{sessionScope.user != null}">
+                            <p:menuitem value="New Release notes" url="/content/createReleaseNotes.do"
+                                icon="ui-icon-document" />
+                            </c:if>
+                        
+							<p:menuitem value="Search" url="/content/searchReleaseNotes.do"
+								icon="ui-icon-search" />
+						</p:submenu>
+						<p:submenu label="Tools" icon="ui-icon-document">
+							<p:menuitem value="Diff Artifacts" url="/content/diffArtifacts.do"
+								icon="ui-icon-search" />
+							<p:menuitem value="Diff Release Notes" url="/content/welcome.do"
+								icon="ui-icon-search" />
+							<p:menuitem value="Issue/Feature search" url="/content/searchFeatures.do" icon="ui-icon-search" />
+							<p:menuitem value="Author search" url="/content/authorSearch.do"
+								icon="ui-icon-search" />
+						</p:submenu>
+
+
+						<f:facet name="options">
+							<c:if test="#{sessionScope.user == null}">
+								<h:outputLink value="javascript:void(0)"
+									onclick="PF('dlg').show();" title="login">
+									<p:graphicImage value="/images/login.png" width="40"
+										height="40" />
+								</h:outputLink>
+							</c:if>
+							<c:if test="#{sessionScope.user != null}">
+								<p:menuButton value="#{sessionScope.user.fullName}">
+									<p:menuitem>
+									   <p:panelGrid columns="2">
+										<p:commandLink action="#{login.logout}" title="Log out"
+											ajax="false">
+											<p:graphicImage value="/images/logout.jpg" width="20"
+												height="20" title="Logout" />
+										</p:commandLink>
+										<p:commandLink action="#{login.logout}" title="Log out"
+                                            ajax="false" value="Logout"/>
+                                        
+										</p:panelGrid>
+									</p:menuitem>
+								</p:menuButton>
+							</c:if>
+
+
+						</f:facet>
+
+					</p:menubar>
+				</h:form>
+				<ui:insert name="main"></ui:insert>
+			</p:layoutUnit>
+
+			<!-- <p:layoutUnit position="east" size="300" header="Dashboard"
+				resizable="true" collapsible="true" effect="slide">
+				<p:spacer width="200" height="20" />
+				<ui:insert name="right"></ui:insert>
+			</p:layoutUnit> -->
+
+		</p:layout>
+
+	</h:body>
+
+</f:view>
+
+<script language="javascript"
+	src="#{request.contextPath}/syntaxhighlighter/scripts/sh.js"></script>
+<script language="javascript">
+	dp.SyntaxHighlighter.ClipboardSwf = '#{request.contextPath}/syntaxhighlighter/scripts/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html>
+

@@ -1,0 +1,231 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+    <ui:define name="main">
+        <h:form id="form">
+            <p:panel header="View release notes">
+
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Release name" />
+                    <p:selectOneMenu filter="true" filterMatchMode="contains"
+                        value="#{release.releaseName}">
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItems value="#{release.allReleaseNames}" />
+                        <p:ajax listener="#{release.onChange}"
+                            update=":#{p:component('results1')}"></p:ajax>
+                    </p:selectOneMenu>
+                </p:panelGrid>
+            </p:panel>
+        </h:form>
+
+        <p:separator></p:separator>
+        <p:spacer height="10"></p:spacer>
+        <h:form id="results1">
+            <p:panel header="Release Summary for #{release.releaseName}"
+                rendered="#{release.showRelease}">
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Release name" />
+                    <p:outputLabel value="#{release.currRelease.releaseName}" />
+                    <p:outputLabel value="Project artifact" />
+                    <p:outputLabel value="#{release.currRelease.projectArtifact}" />
+                    <p:outputLabel value="Release date" />
+                    <p:outputLabel value="#{release.currRelease.date}" />
+                    <p:outputLabel value="Release lead" />
+                    <p:outputLabel value="#{release.currRelease.releaseLead}" />
+                    <p:outputLabel value="Release additional notes" />
+                    <p:outputLabel value="#{release.currRelease.notes}" />
+                </p:panelGrid>
+            </p:panel>
+            <p:spacer height="5"></p:spacer>
+            <p:dataTable id="dists" var="dist" value="#{release.distributions}"
+                paginator="true" rows="20"
+                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                rowsPerPageTemplate="20,40,60" style="width:100%"
+                rendered="#{release.showRelease}">
+
+                <f:facet name="header">  
+                                Distribution Artifacts (Tar files)
+                            </f:facet>
+
+                <p:column>
+                    <f:facet name="header">  
+                    Maven group id 
+            </f:facet>
+                    <h:outputText value="#{dist.groupId}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">  
+                    Maven artifact id 
+            </f:facet>
+                    <h:outputText value="#{dist.artifactId}" />
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">  
+                    Maven version 
+            </f:facet>
+                    <h:outputText value="#{dist.version}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">  
+                    Maven classifier
+            </f:facet>
+                    <h:outputText value="#{dist.classifier}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">  
+                    Tar file location 
+            </f:facet>
+                    <h:outputLink value="#{dist.fileUrl}">#{dist.fileUrl}</h:outputLink>
+                </p:column>
+
+            </p:dataTable>
+            <p:spacer height="5"></p:spacer>
+             <p:panel header="Export RPM Names" rendered="#{release.showRelease}">
+                    <h:commandLink>
+                        <p:graphicImage value="/images/pdf.png" />
+                        <p:dataExporter type="pdf" target="projDist"
+                            fileName="RPMs" pageOnly="false" />
+                    </h:commandLink>
+
+                    <h:commandLink>
+                        <p:graphicImage value="/images/excel.png" />
+                        <p:dataExporter type="xls" target="projDist"
+                            fileName="RPMs" pageOnly="false" />
+                    </h:commandLink>
+
+                    <h:commandLink>
+                        <p:graphicImage value="/images/xml.png" />
+                        <p:dataExporter type="xml" target="projDist"
+                            fileName="RPMs" pageOnly="false" />
+                    </h:commandLink>
+                </p:panel>
+            <p:dataTable id="projDist" var="projDist" value="#{release.projectDistribution.rpms}"
+                paginator="true" rows="50"
+                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                rowsPerPageTemplate="20,40,60,200" style="width:100%"
+                rendered="#{release.showRelease}">
+
+                <f:facet name="header">  
+                                RPMs in the tar file 
+                 </f:facet>
+
+                <p:column>
+                    <f:facet name="header">  
+                        RPM Name 
+                </f:facet>
+                    <h:outputText value="#{projDist}" />
+                </p:column>
+            </p:dataTable>
+            <p:spacer height="5"></p:spacer>
+            <p:dataTable id="jiras" var="jira" value="#{release.allJira}"
+                paginator="true" rows="20"
+                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                rowsPerPageTemplate="20,40,60" style="width:100%"
+                rendered="#{release.showRelease}">
+
+                <f:facet name="header">  
+                                Jira calls in this release
+                            </f:facet>
+
+                <p:column>
+                    <f:facet name="header">  
+                    Jira call id 
+            </f:facet>
+                    <h:outputText value="#{jira}" />
+                </p:column>
+            </p:dataTable>
+            <p:spacer height="8"></p:spacer>
+            <p:panel header="Release details for #{release.releaseName}"
+                rendered="#{release.showRelease}">
+                <p:panel header="Export Page Data" rendered="#{release.showRelease}">
+                    <h:commandLink>
+                        <p:graphicImage value="/images/pdf.png" />
+                        <p:dataExporter type="pdf" target="projects"
+                            fileName="ReleaseNotes" pageOnly="false" />
+                    </h:commandLink>
+
+                    <h:commandLink>
+                        <p:graphicImage value="/images/excel.png" />
+                        <p:dataExporter type="xls" target="projects"
+                            fileName="ReleaseNotes" pageOnly="false" />
+                    </h:commandLink>
+
+                    <h:commandLink>
+                        <p:graphicImage value="/images/xml.png" />
+                        <p:dataExporter type="xml" target="projects"
+                            fileName="ReleaseNotes" pageOnly="false" />
+                    </h:commandLink>
+                </p:panel>
+                <p:dataTable id="projects" var="project"
+                    value="#{release.allArtifacts}" paginator="true" rows="20"
+                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    rowsPerPageTemplate="20,40,60,200" style="width:100%">
+
+                    <f:facet name="header">  
+                                Released artifacts
+                            </f:facet>
+
+                    <p:column>
+                        <f:facet name="header">  
+                    Maven group id 
+            </f:facet>
+                        <h:outputText value="#{project.groupId}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
+                    Maven artifact id 
+            </f:facet>
+                        <h:outputText value="#{project.artifactId}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
+                    Maven version 
+            </f:facet>
+                        <h:outputText value="#{project.version}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
+                    SVN Tag 
+            </f:facet>
+                        <h:outputText value="#{project.svnTag}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
+                    SVN Revision 
+            </f:facet>
+                        <h:outputText value="#{project.svnRevision}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
+                    RPM Name
+            </f:facet>
+                        <h:outputText value="#{project.rpmName}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
+                    Klocwork build job
+            </f:facet>
+                        <h:outputText value="#{project.klocworkReport.buildNumber}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
+                    Klocwork build date
+            </f:facet>
+                        <h:outputText value="#{project.klocworkReport.date}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
+                    Klocwork issues
+            </f:facet>
+                        <h:outputText value="#{project.klocworkReport.severityAndNumberofIssues}" />
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>

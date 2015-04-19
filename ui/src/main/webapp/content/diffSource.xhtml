@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>#{diffSource.currFile} (Prev revision: #{diffSource.prevRevision} Curr revision: #{diffSource.currRevision})</title>
+	<style type="text/css">
+.ui-widget {
+	font-size: 80%;
+}
+</style>
+</h:head>
+
+<h:body>
+	<h:form>
+		<table>
+			<tr>
+				<td><p:outputLabel value="#{diffSource.prevContent}"
+						escape="false" /></td>
+				<td><p:outputLabel value="#{diffSource.currContent}"
+						escape="false" /></td>
+
+			</tr>
+
+		</table>
+	</h:form>
+</h:body>
+</html>

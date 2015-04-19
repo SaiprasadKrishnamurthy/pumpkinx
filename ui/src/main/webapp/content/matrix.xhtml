@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+	<ui:define name="main">
+	<h3>Artifacts used by various projects</h3>
+
+		<h:form id="results">
+			<p:tree id="tree" value="#{matrix.root}" var="node">
+				<p:treeNode id="treeNode">
+					<h:outputText value="#{node.displayName}" id="lblNode" />
+					<p:tooltip id="toolTipFade" for="lblNode">
+						<p:panelGrid columns="2">
+							<h:outputText value="Group Id:" />
+							<h:outputText value="#{node.artifactMeta.groupId}" />
+							<h:outputText value="Artifact Id: " />
+							<h:outputText value="#{node.artifactMeta.artifactId}" />
+							<h:outputText value="SVN Repo (Relative to the root): " />
+							<h:outputText value="#{node.artifactMeta.svnLocation}" />
+							<h:outputText value="Indirect dependency paths: " />
+							<p:dataTable var="rowName" value="#{node.pathToDependency}">
+								<p:column headerText="Path">
+									<h:outputText value="#{rowName}" />
+								</p:column>
+							</p:dataTable>
+						</p:panelGrid>
+					</p:tooltip>
+				</p:treeNode>
+			</p:tree>
+		</h:form>
+	</ui:define>
+</ui:composition>

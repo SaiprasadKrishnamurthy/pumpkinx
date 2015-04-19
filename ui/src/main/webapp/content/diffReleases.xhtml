@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+        <ui:define name="main">
+                <h:form id="versions">
+                        <p:panel header="Choose the versions to diff"
+                                rendered="#{diffRelease.showTabs}" toggleable="true">
+                                <p:pickList id="pickList" value="#{diffRelease.pick}" var="version"
+                                        itemLabel="#{diffRelease.selectedRelease}(#{version})"
+                                        itemValue="#{version}" rendered="#{diffRelease.showTabs}"
+                                        filterMatchMode="contains" effect="fade">
+                                        <f:facet name="sourceCaption">Available</f:facet>
+                                        <f:facet name="targetCaption">To be diffed</f:facet>
+                                        <p:ajax event="transfer" listener="#{diffRelease.onTransfer}" />
+                                </p:pickList>
+                                <p:commandButton value="Find Diff" action="#{diffRelease.doDiff}"
+                                        rendered="#{diffRelease.showTabs}" update=":#{p:component('results')}" />
+                        </p:panel>
+                </h:form>
+
+                <h:form id="results">
+                        <p:tree id="tree" value="#{diffRelease.root}" var="node"
+                                orientation="horizontal" rendered="#{diffRelease.root != null}">
+                                <p:treeNode id="treeNode">
+                                        <h:outputText value="#{node.displayName}" id="lblNode" />
+                                        <p:tooltip id="toolTipFade" for="lblNode" trackMouse="true">
+                                        	<p:panelGrid columns="2">
+                                        		<h:outputText value="RPM(s): " />
+                                        		<h:outputText value="#{node.rpmName}" />
+                                        		<h:outputText value="SVN Revision: " />
+                                        		<h:outputText value="#{node.svnRevision}" />
+                                        		<h:outputText value="SVN Tag: " />
+                                        		<h:outputText value="#{node.svnTag}" />
+                                        	</p:panelGrid>
+                                        </p:tooltip>
+                                </p:treeNode>
+                        </p:tree>
+                </h:form>
+        </ui:define>
+</ui:composition>

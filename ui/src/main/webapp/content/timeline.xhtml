@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	template="layouts/layout.xhtml">
+
+
+	<ui:define name="main">
+		<h:form id="form">
+			<p:panel header="Artifact Release timeline">
+
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Artifacts" />
+					<p:selectOneMenu filter="true" filterMatchMode="contains"
+						value="#{time.selectedArtifactId}">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{time.allArtifacts}" />
+						<p:ajax listener="#{time.onChange}"
+							update=":#{p:component('results1')}"></p:ajax>
+					</p:selectOneMenu>
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+
+		<p:separator></p:separator>
+		<p:spacer height="10"></p:spacer>
+		<h:form id="results1">
+			<pe:timeline id="timeline" value="#{time.timelineModel}"
+				height="750px" selectable="true" zoomable="true" moveable="true"
+				stackEvents="true" axisOnTop="false" eventStyle="dot"
+				showCurrentTime="true" showNavigation="false">
+			</pe:timeline>
+		</h:form>
+	</ui:define>
+</ui:composition>

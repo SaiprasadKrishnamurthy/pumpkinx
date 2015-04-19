@@ -1,0 +1,124 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+	<ui:define name="main">
+		<h:form>
+			<p:spacer height="20" />
+			<p:panel header="Release Notes of #{viewRelease.release.releaseName}">
+				<h1>#{viewRelease.release.releaseName}</h1>
+				<p:panel header="Export">
+                    <h:commandLink>
+                        <p:graphicImage value="/images/pdf.png" />
+                        <p:dataExporter type="pdf" target="artifacts"
+                            fileName="Release_Notes_#{viewRelease.release.releaseName}" pageOnly="false" />
+                    </h:commandLink>
+
+                    <h:commandLink>
+                        <p:graphicImage value="/images/excel.png" />
+                        <p:dataExporter type="xls" target="artifacts"
+                            fileName="Release_Notes_#{viewRelease.release.releaseName}" pageOnly="false" />
+                    </h:commandLink>
+
+                    <h:commandLink>
+                        <p:graphicImage value="/images/xml.png" />
+                        <p:dataExporter type="xml" target="projDist"
+                            fileName="RPMs" pageOnly="false" />
+                    </h:commandLink>
+                </p:panel>
+				<p:dataTable id="artifacts" var="a" value="#{viewRelease.artifacts}"
+					paginator="true" rows="50"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="50,100,150,200" style="width:100%" resizableColumns="true">
+					<f:facet name="header">
+                            Released Artifacts
+                     </f:facet>
+					<p:column style="width:5%">
+					   <f:facet name="header">
+                            Features
+                     </f:facet>
+						<p:rowToggler />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+                            Maven Group Id
+                     </f:facet>
+						<p:outputLabel value="#{a.artifact.groupId}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+                            Maven Artifact Id
+                     </f:facet>
+						<p:outputLabel value="#{a.artifact.artifactId}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+                            Maven Version
+                     </f:facet>
+						<p:outputLabel value="#{a.artifact.version}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+                            Rating
+                     </f:facet>
+						<p:rating value="#{a.artifact.rating}" readonly="true" id="rate" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+                            SCM Location
+                     </f:facet>
+						<p:outputLabel value="#{a.artifactScmDetail.scmPath}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+                            SCM Revision
+                     </f:facet>
+						<p:outputLabel value="#{a.artifactScmDetail.revision}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+                            Packages
+                     </f:facet>
+						<p:outputLabel value="#{a.artifact.packages}" />
+					</p:column>
+
+					<p:rowExpansion>
+						<p:dataTable id="features" var="f" value="#{a.featureDetail.features}"
+							paginator="true" rows="10"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							rowsPerPageTemplate="5,10,15,50" style="width:100%" emptyMessage="No features found.">
+							<p:column>
+								<f:facet name="header">  
+                                    Issue/Feature Id 
+                                </f:facet>
+								<h:outputText value="#{f.featureId} " />
+							</p:column>
+							<p:column>
+                                <f:facet name="header">  
+                                    Issue/Feature Title 
+                                </f:facet>
+                                <h:outputText value="#{f.featureTitle} " />
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">  
+                                    Issue/Feature Reporter 
+                                </f:facet>
+                                <h:outputText value="#{f.featureCreatedBy} " />
+                            </p:column>
+                             <p:column>
+                                <f:facet name="header">  
+                                    Issue/Feature Reported Date 
+                                </f:facet>
+                                <h:outputText value="#{f.featureCreatedDate} " />
+                            </p:column>
+						</p:dataTable>
+					</p:rowExpansion>
+
+				</p:dataTable>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

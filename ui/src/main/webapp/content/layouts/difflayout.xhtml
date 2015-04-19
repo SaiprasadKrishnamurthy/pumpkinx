@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view contentType="text/html">
+
+	<h:head>
+		<f:facet name="first">
+			<meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>Pumpkin</title>
+		</f:facet>
+
+		<link type="text/css" rel="stylesheet"
+			href="#{request.contextPath}/css/default.css" />
+		<link type="text/css" rel="stylesheet"
+			href="#{request.contextPath}/css/syntaxhighlighter/syntaxhighlighter.css" />
+
+		<script language="javascript">
+			$(document).ready(
+					function() {
+						$(".ui-panelmenu-content").css("display", "block"); //shows the menuitems
+						$(".ui-panelmenu-header").addClass("ui-state-active"); //sets the submenu header to active state
+						$(".ui-icon-triangle-1-e").removeClass(
+								"ui-icon-triangle-1-e").addClass(
+								"ui-icon-triangle-1-s"); //sets the triangle icon to "expaned" version
+					});
+
+			function handleLoginRequest(xhr, status, args) {
+				if (args.validationFailed || !args.loggedIn) {
+					PF('dlg').jq.effect("shake", {
+						times : 5
+					}, 100);
+				} else {
+					PF('dlg').hide();
+					$('#loginLink').fadeOut();
+					window.location.href = window.location.href;
+				}
+			}
+		</script>
+	</h:head>
+
+	<h:body>
+		<p:layout fullPage="true">
+			<p:layoutUnit position="east" size="500" header="Dashboard"
+				resizable="true" collapsible="true" effect="slide">
+				<p:spacer width="200" height="20" />
+				<ui:insert name="right"></ui:insert>
+			</p:layoutUnit>
+            <p:layoutUnit position="west" size="500" header="Dashboard"
+                resizable="true" collapsible="true" effect="slide">
+                <p:spacer width="200" height="20" />
+                <ui:insert name="left"></ui:insert>
+            </p:layoutUnit>
+            
+		</p:layout>
+
+	</h:body>
+
+</f:view>
+
+<script language="javascript"
+	src="#{request.contextPath}/syntaxhighlighter/scripts/sh.js"></script>
+<script language="javascript">
+	dp.SyntaxHighlighter.ClipboardSwf = '#{request.contextPath}/syntaxhighlighter/scripts/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html>
+

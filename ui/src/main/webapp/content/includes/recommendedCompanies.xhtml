@@ -1,0 +1,21 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:panel header="Recommended companies">
+
+		<p:dataGrid var="company" value="#{recommendedCompanies.companies}"
+			columns="3" rows="7" paginator="true"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+
+			<p:panel style="text-align:center">
+				<h:panelGrid columns="1" style="width:100%">
+					<p:graphicImage value="/images/#{company.logoName}" width="30" height="30" title="#{company.name}" />
+				</h:panelGrid>
+			</p:panel>
+		</p:dataGrid>
+	</p:panel>
+</h:form>
+

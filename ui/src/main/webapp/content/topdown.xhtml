@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+	<ui:define name="main">
+		<h:form id="form">
+			<p:panel header="Find dependencies used by project">
+
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Project artifact" />
+					<p:selectOneMenu filter="true" filterMatchMode="contains"
+						value="#{topdown.selectedTopLevel}">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{topdown.allTopLevelDependencies}" />
+					</p:selectOneMenu>
+					<p:outputLabel value="Low level artifact" />
+					<p:selectOneMenu filter="true" filterMatchMode="contains"
+						value="#{topdown.selectedLowLevel}">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{topdown.allLowLevelDependencies}" />
+					</p:selectOneMenu>
+					<p:commandButton value="Find dependency paths" action="#{topdown.handle}"
+						update=":#{p:component('results1')}"></p:commandButton>
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+		<p:spacer></p:spacer>
+		<p:separator></p:separator>
+		<p:spacer height="10"></p:spacer>
+		<h:form id="results1">
+			<p:dataList value="#{topdown.allDependencyPaths}" var="path"
+				type="unordered" itemType="none" paginator="true" rows="10"
+				styleClass="paginated">
+				<f:facet name="header">
+            Dependency Path
+        </f:facet>
+				<h:outputText value="#{path}" style="display:inline-block" />
+			</p:dataList>
+		</h:form>
+	</ui:define>
+</ui:composition>

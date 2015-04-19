@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.eclipse.aether:aether-util:0.9.1.v20140329">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/aether/aether-util/0.9.1.v20140329/aether-util-0.9.1.v20140329.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/aether/aether-util/0.9.1.v20140329/aether-util-0.9.1.v20140329-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/aether/aether-util/0.9.1.v20140329/aether-util-0.9.1.v20140329-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
