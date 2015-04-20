@@ -13,7 +13,7 @@
 
 	<context-param>
 		<param-name>primefaces.THEME</param-name>
-		<param-value>aristo</param-value>
+		<param-value>redmond</param-value>
 	</context-param>
 
 	<!-- Change to "Production" when you are ready to deploy -->
@@ -48,11 +48,12 @@
 	</servlet-mapping>
 
 	<error-page>
-		<exception-type>javax.faces.application.ViewExpiredException</exception-type>
+		<exception-type>java.lang.IllegalStateException</exception-type>
 		<location>/content/welcome.xhtml</location>
 	</error-page>
+	
 	<error-page>
-        <error-code>500</error-code>
+        <error-code>java.lang.NullPointerException</error-code>
         <location>/content/error.xhtml</location>
     </error-page>
 

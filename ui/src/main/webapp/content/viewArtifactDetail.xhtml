@@ -57,7 +57,8 @@
 					</c:if>
 
 					<p:spacer height="5"></p:spacer>
-					<p:fieldset legend="This artifact depends on (dependencies)" toggleable="true">
+					<p:fieldset legend="This artifact depends on (dependencies)"
+						toggleable="true">
 						<p:dataTable id="deps" var="dep"
 							value="#{viewArtifact.artifact.children}" style="width:100%">
 
@@ -107,7 +108,7 @@
 
 
 						</p:dataTable>
-						</p:fieldset>
+					</p:fieldset>
 
 					<p:spacer height="5"></p:spacer>
 					<p:fieldset legend="This artifact is used by" toggleable="true">
@@ -139,7 +140,7 @@
 								</p:button>
 							</p:column>
 						</p:dataTable>
-						</p:fieldset>
+					</p:fieldset>
 					<p:spacer height="10"></p:spacer>
 
 					<c:if
@@ -222,8 +223,7 @@
 									<f:facet name="header">  
                                     View Changes 
                                 </f:facet>
-									<p:commandButton
-										actionListener="#{viewArtifact.diff(cs,cse)}"
+									<p:commandButton actionListener="#{viewArtifact.diff(cs,cse)}"
 										icon="ui-icon-search" title="View diff">
 									</p:commandButton>
 								</p:column>
@@ -385,13 +385,6 @@
 								listener="#{viewArtifact.onFollowAnyVersion}" />
 						</p:selectBooleanCheckbox>
 
-						<p:outputLabel value="Follow this version of artifact" />
-						<p:selectBooleanCheckbox
-							value="#{viewArtifact.followingThisVersion}">
-							<p:ajax
-								update=":#{p:component('followers')} :#{p:component('rf')}"
-								listener="#{viewArtifact.onFollowThisVersion}" />
-						</p:selectBooleanCheckbox>
 					</p:panelGrid>
 					<p:spacer height="20"></p:spacer>
 				</p:tab>

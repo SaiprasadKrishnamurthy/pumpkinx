@@ -128,7 +128,6 @@ class ViewArtifactController {
   
   @BeanProperty
   var diffSource: DiffSource = _
-  
 
   val httpRequest = FacesContext.getCurrentInstance().getExternalContext().getRequest().asInstanceOf[HttpServletRequest]
   

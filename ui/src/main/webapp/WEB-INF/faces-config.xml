@@ -24,6 +24,11 @@
 		<managed-bean-scope>view</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
+        <managed-bean-name>logout</managed-bean-name>
+        <managed-bean-class>org.sai.pumpkinx.ui.beans.LogoutController</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+	<managed-bean>
 		<managed-bean-name>diffArtifacts</managed-bean-name>
 		<managed-bean-class>org.sai.pumpkinx.ui.beans.DiffArtifactsController</managed-bean-class>
 		<managed-bean-scope>view</managed-bean-scope>
@@ -57,6 +62,11 @@
 		<managed-bean-class>org.sai.pumpkinx.ui.beans.DiffSource</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+        <managed-bean-name>userProfile</managed-bean-name>
+        <managed-bean-class>org.sai.pumpkinx.ui.beans.UserController</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
 	<application>
 		<action-listener>org.primefaces.application.DialogActionListener</action-listener>
 		<navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>

@@ -25,7 +25,7 @@ object Config {
     "project"
   }
 
-  val mongoTemplate = new MongoTemplate(remoteMongo);
+  val mongoTemplate = new MongoTemplate(mongo);
 
   def getMongoTemplate = {
     mongoTemplate
@@ -42,6 +42,8 @@ object Config {
     
   // Start notifications actor system.
   val system = ActorSystem("pumpkinx-ui-akka")
+  
+  val locations = List("Aldershot, UK", "Hayes Middlesex (London Gate), UK", "Bangalore, India", "Muscat, Oman", "Delhi, India", "Sydney, Australia", "Atlanta, USA", "Doha, Qatar", "Letterkenny, Ireland", "Colombo, Sri Lanka", "Dubai, UAE", "Riyadh, Saudi Arabia").sorted
   
 /*  def getEmailSender = system.actorOf(Props[EmailActor], "emailActor")
   system.awaitTermination()*/

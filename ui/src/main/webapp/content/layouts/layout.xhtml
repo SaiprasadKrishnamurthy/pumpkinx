@@ -45,12 +45,12 @@
 
 	<h:body>
 		<p:layout fullPage="true">
-			<p:layoutUnit position="north" size="105" resizable="false"
+			<p:layoutUnit position="north" size="95" resizable="false"
 				closable="false" collapsible="false">
 				<div class="ui-widget ui-widget-header" style="">
 					<div id="bg">
 						<a href="welcome.do"><p:graphicImage value="/images/logo.jpg"
-								width="120" height="90" /></a>
+								width="120" height="80" /></a>
 					</div>
 				</div>
 			</p:layoutUnit>
@@ -89,28 +89,26 @@
 						</h:panelGrid>
 					</p:dialog>
 					<p:menubar>
-					   <p:menuitem value="" url="welcome.do" icon="ui-icon-home" style="width:20px"></p:menuitem>
+						<p:menuitem value="" url="welcome.do" icon="ui-icon-home"
+							style="width:20px"></p:menuitem>
 						<p:submenu label="Artifacts" icon="ui-icon-document">
 							<p:menuitem value="Search" url="/content/welcome.do"
 								icon="ui-icon-search" />
 						</p:submenu>
 						<p:submenu label="Release Notes" icon="ui-icon-document">
-							 <c:if test="#{sessionScope.user != null}">
-                            <p:menuitem value="New Release notes" url="/content/createReleaseNotes.do"
-                                icon="ui-icon-document" />
-                            </c:if>
-                        
+							<c:if test="#{sessionScope.user != null}">
+								<p:menuitem value="New Release notes"
+									url="/content/createReleaseNotes.do" icon="ui-icon-document" />
+							</c:if>
+
 							<p:menuitem value="Search" url="/content/searchReleaseNotes.do"
 								icon="ui-icon-search" />
 						</p:submenu>
 						<p:submenu label="Tools" icon="ui-icon-document">
-							<p:menuitem value="Diff Artifacts" url="/content/diffArtifacts.do"
-								icon="ui-icon-search" />
-							<p:menuitem value="Diff Release Notes" url="/content/welcome.do"
-								icon="ui-icon-search" />
-							<p:menuitem value="Issue/Feature search" url="/content/searchFeatures.do" icon="ui-icon-search" />
-							<p:menuitem value="Author search" url="/content/authorSearch.do"
-								icon="ui-icon-search" />
+							<p:menuitem value="Diff Artifacts"
+								url="/content/diffArtifacts.do" icon="ui-icon-search" />
+							<p:menuitem value="Issue/Feature search"
+								url="/content/searchFeatures.do" icon="ui-icon-search" />
 						</p:submenu>
 
 
@@ -121,21 +119,20 @@
 									<p:graphicImage value="/images/login.png" width="40"
 										height="40" />
 								</h:outputLink>
+								<p:spacer width="10"></p:spacer>
+								<h:outputLink
+                                    value="userRegistration.do" title="Sign up">
+                                    <p:graphicImage value="/images/register1.png" 
+                                        />
+                                </h:outputLink>
 							</c:if>
 							<c:if test="#{sessionScope.user != null}">
 								<p:menuButton value="#{sessionScope.user.fullName}">
-									<p:menuitem>
-									   <p:panelGrid columns="2">
-										<p:commandLink action="#{login.logout}" title="Log out"
-											ajax="false">
-											<p:graphicImage value="/images/logout.jpg" width="20"
-												height="20" title="Logout" />
-										</p:commandLink>
-										<p:commandLink action="#{login.logout}" title="Log out"
-                                            ajax="false" value="Logout"/>
-                                        
-										</p:panelGrid>
-									</p:menuitem>
+									<p:menuitem action="#{logout.logout}" title="Log out"
+										ajax="false" value="Logout" />
+									<p:menuitem url="viewUserProfile.do"
+										title="View my profile" ajax="false" value="My profile" />
+
 								</p:menuButton>
 							</c:if>
 
