@@ -1,0 +1,90 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="layouts/noajaxstatus.xhtml">
+
+
+	<ui:define name="main">
+		<h:form id="form">
+			<p:spacer height="10" />
+
+			<p:messages id="messages" showDetail="true" autoUpdate="true"
+				closable="true" />
+
+			<p:panel header="New artifact registration">
+				<p:panelGrid columns="1">
+					<p:autoComplete value="#{registerArtifact.groupId}" placeholder="Group Id"
+						size="120" required="true" id="groupId"
+                        queryDelay="1000" cache="true" completeMethod="#{registerArtifact.onGroupId}">
+						<f:validateRequired for="groupId" />
+					</p:autoComplete>  
+					<p:message for="groupId" />
+					
+					<p:inputText value="#{registerArtifact.artifactId}" placeholder="Artifact Id"
+                        size="120" required="true" id="artifactId">
+                        <f:validateRequired for="artifactId" />
+                    </p:inputText>
+                    <p:commandButton value="Load existing artifact" rendered="#{registerArtifact.existingFound}" action="#{registerArtifact.loadExisting}" />
+                    <p:message for="artifactId" />
+                    
+                    <p:autoComplete value="#{registerArtifact.packaging}" placeholder="Packaging"
+                        size="120" required="true" id="packaging"
+                        queryDelay="1000" cache="true" completeMethod="#{registerArtifact.onPackaging}">
+                        <f:validateRequired for="packaging" />
+                    </p:autoComplete>
+                    <p:message for="packaging" />
+                    
+                     <p:autoComplete value="#{registerArtifact.owner}" placeholder="Owner of this artifact"
+                        size="120" required="true" id="owner"
+                        queryDelay="1000" cache="true" completeMethod="#{registerArtifact.onOwner}">
+                        <f:validateRequired for="owner" />
+                    </p:autoComplete>
+                    <p:message for="owner" />
+                    
+                    <p:autoComplete value="#{registerArtifact.licence}" placeholder="Licence of this artifact"
+                        size="120" required="true" id="licence"
+                        queryDelay="1000" cache="true" completeMethod="#{registerArtifact.onLicence}">
+                        <f:validateRequired for="licence" />
+                    </p:autoComplete>
+                    <p:message for="licence" />
+                    
+                     <p:inputText value="#{registerArtifact.licenceUrl}" placeholder="Licence URL of this artifact"
+                        size="120" id="licenceUrl">
+                    </p:inputText>
+                    <p:inputTextarea value="#{registerArtifact.licenceText}" placeholder="Licence contents"
+                        id="licenceText" rows="10" cols="86">
+                    </p:inputTextarea>
+                    
+                     <p:autoComplete value="#{registerArtifact.artifactCategory}" placeholder="Artifact category (eg: UI, Utility, Web Resources, Other, Standalone etc)"
+                        size="120" required="true" id="artifactCategory"
+                        queryDelay="1000" cache="true" completeMethod="#{registerArtifact.onCategory}">
+                        <f:validateRequired for="artifactCategory" />
+                    </p:autoComplete>
+                    <p:message for="artifactCategory" />
+                    
+                    <p:inputText value="#{registerArtifact.scmLocation}" placeholder="Subversion Trunk URL (....../trunk (Please provide ip address and not hostname in the URL))"
+                        size="120" required="true" id="scmLocation">
+                        <f:validateRequired for="scmLocation" />
+                    </p:inputText>
+                    <p:message for="scmLocation" />
+                    
+                    <p:inputText value="#{registerArtifact.buildServerUrl}" placeholder="Build server URL (eg: Jenkins URL)"
+                        size="120" id="buildServerUrl">
+                    </p:inputText>
+                    
+                    <p:inputText value="#{registerArtifact.packages}" placeholder="Comma separated rpm names (Don't provide .noarch.rpm) (eg: sitaEventMgr)"
+                        size="120" id="packages">
+                    </p:inputText>
+                    
+					<p:commandButton value="Register" size="120"
+						action="#{registerArtifact.save}" validateClient="true" ajax="false"
+						style="width:630px" />
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+		<p:spacer height="10"></p:spacer>
+	</ui:define>
+</ui:composition>

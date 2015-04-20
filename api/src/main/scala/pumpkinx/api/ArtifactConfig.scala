@@ -72,7 +72,7 @@ class ArtifactConfig {
   @BeanProperty
   var codeQualityMetricsUrl: String = _
 
-  // sonar
+  // eg: sonar
   @BeanProperty
   var codeQualityMetricsType: String = _
   

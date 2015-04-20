@@ -110,6 +110,9 @@ class UserController {
   }
 
   def save = {
+    if (userInSession == null) {
+      httpResponse.sendError(HttpServletResponse.SC_FORBIDDEN, "User not logged in")
+    }
     val updatedUser = User(fullName, user.user.userId, userInSession.password, email)
     val userProfile = new UserProfile
     userProfile.department = department
