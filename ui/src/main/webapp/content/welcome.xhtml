@@ -1,82 +1,85 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
 
 
-	<ui:define name="main">
-		<h:form>
-			<p:messages id="messages" showDetail="true" autoUpdate="true"
-				closable="true" />
-			<p:spacer height="20" />
-			<p:panel header="Search Artifacts">
-				<p:spacer height="20" />
-				<p:panelGrid columns="2">
-					<p:autoComplete id="acSimple"
-						value="#{searchArtifacts.searchedConfig}"
-						completeMethod="#{searchArtifacts.onQuery}" size="120"
-						queryDelay="1000" cache="true"
-						placeholder="Artifact id or version"
-						emptyMessage="No results found" />
-					<h:commandButton value="Find all available versions"
-						action="#{searchArtifacts.search}"
-						update=":#{p:component('searchResults')}" />
-				</p:panelGrid>
-			</p:panel>
+    <ui:define name="main">
+        <h:form>
+            <p:messages id="messages" showDetail="true" autoUpdate="true"
+                closable="true" />
+            <p:spacer height="20" />
+            <p:panel header="Search Artifacts">
+                <p:spacer height="20" />
+                <p:panelGrid columns="2">
+                    <p:autoComplete id="artifactId"
+                        value="#{searchArtifacts.searchedConfig}"
+                        completeMethod="#{searchArtifacts.onQuery}" size="120"
+                        queryDelay="1000" cache="true"
+                        placeholder="Artifact id"
+                        emptyMessage="No results found" required="true">
+                        <f:validateRequired for="artifactId" />
+                    </p:autoComplete>
+                    <p:commandButton value="Find all available versions"
+                        action="#{searchArtifacts.search}"
+                        update=":#{p:component('searchResults')}" validateClient="true" ajax="false" />
+                    <p:message for="artifactId" />
+                </p:panelGrid>
+            </p:panel>
 
-			<p:spacer height="5" />
-			<p:panel rendered="#{searchArtifacts.found}" id="searchResults">
-				<p:dataTable id="artifactDetails" var="artifact"
-					value="#{searchArtifacts.results}" paginator="true" rows="50"
-					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-					rowsPerPageTemplate="10,30,50" style="width:100%">
-					<f:facet name="header">  
+            <p:spacer height="5" />
+            <p:panel rendered="#{searchArtifacts.found}" id="searchResults">
+                <p:dataTable id="artifactDetails" var="artifact"
+                    value="#{searchArtifacts.results}" paginator="true" rows="50"
+                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    rowsPerPageTemplate="10,30,50" style="width:100%">
+                    <f:facet name="header">  
                 #{searchArtifacts.searchedArtifact} 
             </f:facet>
 
-					<p:column>
-						<f:facet name="header">  
+                    <p:column>
+                        <f:facet name="header">  
                     Maven Group id 
             </f:facet>
-						<h:outputText value="#{artifact.artifact.groupId}" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">  
+                        <h:outputText value="#{artifact.artifact.groupId}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
                     Maven Artifact id 
             </f:facet>
-						<h:outputText value="#{artifact.artifact.artifactId}" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">  
+                        <h:outputText value="#{artifact.artifact.artifactId}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
                     Maven Version 
             </f:facet>
-						<h:outputText value="#{artifact.artifact.version}" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">  
+                        <h:outputText value="#{artifact.artifact.version}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
                     Rating 
             </f:facet>
-						<p:rating value="#{artifact.artifact.rating}" readonly="true" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">  
+                        <p:rating value="#{artifact.artifact.rating}" readonly="true" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
                     References (Used by) 
             </f:facet>
-						<p:outputLabel value="#{artifact.dependeeCount}" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">  
+                        <p:outputLabel value="#{artifact.dependeeCount}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">  
                     View
             </f:facet>
-						<p:button
-							outcome="viewArtifactDetail.xhtml?groupId=#{artifact.artifact.groupId}&amp;artifactId=#{artifact.artifact.artifactId}&amp;version=#{artifact.artifact.version}"
-							icon="ui-icon-search" title="View this artifact">
-						</p:button>
+                        <p:button
+                            outcome="viewArtifactDetail.xhtml?groupId=#{artifact.artifact.groupId}&amp;artifactId=#{artifact.artifact.artifactId}&amp;version=#{artifact.artifact.version}"
+                            icon="ui-icon-search" title="View this artifact">
+                        </p:button>
 
-					</p:column>
-				</p:dataTable>
-			</p:panel>
-		</h:form>
-	</ui:define>
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+        </h:form>
+    </ui:define>
 </ui:composition>

@@ -46,8 +46,10 @@ class JiraActor extends Actor with ActorLogging {
         val result = allJiraCallsForThisVersion.flatMap(getFeatureInfoFromJira)
         featureDetail.features.addAll(result.map(tuple => Feature(tuple._1.toString, tuple._2.toString, tuple._4.toString, tuple._3.toString, "")))
 
-        Config.getMongoTemplate.save(featureDetail)
-        println("Saved: " + tuple._1)
+        if (featureDetail.features.size != 0) {
+          Config.getMongoTemplate.save(featureDetail)
+          println("Saved: " + tuple._1)
+        }
       }
 
     })
@@ -69,12 +71,12 @@ class JiraActor extends Actor with ActorLogging {
             val unresolved = new UnresolvedFeature
             unresolved.featureKey = featureId.trim
             Config.getMongoTemplate.save(unresolved)
-            println(featureId + " ==> " + ex  + "Marked as unresolved")
+            println(featureId + " ==> " + ex + "Marked as unresolved")
             None
           }
         }
       } else {
-        log.info("Jira: "+featureId+" is marked as cannot be resolved ")
+        log.info("Jira: " + featureId + " is marked as cannot be resolved ")
         None
       }
     }

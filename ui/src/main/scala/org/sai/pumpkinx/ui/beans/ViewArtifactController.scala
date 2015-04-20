@@ -1,40 +1,48 @@
 package org.sai.pumpkinx.ui.beans
 
+import java.util.ArrayList
+import java.util.Date
+
 import scala.beans.BeanProperty
 import scala.collection.JavaConversions._
 import scala.collection.JavaConverters._
-import org.sai.pumpkinx.ui.config.Config
-import pumpkinx.api.ArtifactConfig
-import org.springframework.data.mongodb.core.query.Query
-import org.springframework.data.mongodb.core.query.Criteria
-import java.util.ArrayList
-import pumpkinx.api.ArtifactDetail
-import org.springframework.data.domain.Sort
-import javax.faces.context.FacesContext
-import javax.servlet.http.HttpServletRequest
-import pumpkinx.api.ArtifactScmDetail
-import org.primefaces.model.mindmap._
-import api.ChangeSet
-import java.util.Date
-import api.ChangeSet
-import org.primefaces.model.chart.PieChartModel
-import api.FeatureDetail
-import pumpkinx.api.Feature
-import api.SourceFileDetail
-import org.primefaces.event.RateEvent
-import javax.faces.application.FacesMessage
-import pumpkinx.api.User
-import pumpkinx.api.User
-import pumpkinx.api.Issue
-import org.primefaces.extensions.model.timeline.TimelineModel
-import org.primefaces.extensions.model.timeline.TimelineEvent
-import api.ChangeSet
-import api.ChangeSetEntry
+import scala.collection.mutable.HashMap
 import scala.io.Source
+
 import org.primefaces.context.RequestContext
-import scala.xml._
+import org.primefaces.event.RateEvent
+import org.primefaces.event.map.OverlaySelectEvent
+import org.primefaces.extensions.model.timeline.TimelineEvent
+import org.primefaces.extensions.model.timeline.TimelineModel
+import org.primefaces.model.chart.PieChartModel
+import org.primefaces.model.map.DefaultMapModel
+import org.primefaces.model.map.LatLng
+import org.primefaces.model.map.MapModel
+import org.primefaces.model.map.Marker
+import org.primefaces.model.mindmap._
+import org.sai.pumpkinx.ui.config.Config
 import org.sai.pumpkinx.ui.util.DiffGen
 import org.sai.pumpkinx.ui.util.SvnUtil
+import org.springframework.data.mongodb.core.query.Criteria
+import org.springframework.data.mongodb.core.query.Query
+
+import api.ChangeSet
+import api.ChangeSet
+import api.ChangeSet
+import api.ChangeSetEntry
+import api.FeatureDetail
+import api.SourceFileDetail
+import javax.faces.application.FacesMessage
+import javax.faces.context.FacesContext
+import javax.servlet.http.HttpServletRequest
+import pumpkinx.api.ArtifactConfig
+import pumpkinx.api.ArtifactDetail
+import pumpkinx.api.ArtifactScmDetail
+import pumpkinx.api.Feature
+import pumpkinx.api.Issue
+import pumpkinx.api.User
+import pumpkinx.api.User
+import pumpkinx.api.UserProfile
 
 class ViewArtifactController {
   val mongo = Config.getMongoTemplate
@@ -125,14 +133,32 @@ class ViewArtifactController {
 
   @BeanProperty
   var currContent: String = _
-  
+
   @BeanProperty
   var diffSource: DiffSource = _
 
+  @BeanProperty
+  var simpleModel: MapModel = _
+
+  @BeanProperty
+  var marker: Marker = _
+
+  @BeanProperty
+  var unresolvedUsers: java.util.ArrayList[String] = new ArrayList
+
+  @BeanProperty
+  var resolvedUsers: java.util.ArrayList[UserProfile] = new ArrayList
+
+  @BeanProperty
+  var mapCenterCoordinates: String = Config.mapCenterCoordinates
+
+  @BeanProperty
+  var usersPerLocation: java.util.ArrayList[String] = new ArrayList
+
   val httpRequest = FacesContext.getCurrentInstance().getExternalContext().getRequest().asInstanceOf[HttpServletRequest]
-  
-  println(" ---> "+httpRequest.getSession(false))
-  val user = if(httpRequest.getSession(false) != null) httpRequest.getSession(false).getAttribute("user").asInstanceOf[User] else null
+
+  println(" ---> " + httpRequest.getSession(false))
+  val user = if (httpRequest.getSession(false) != null) httpRequest.getSession(false).getAttribute("user").asInstanceOf[User] else null
 
   val groupId = httpRequest.getParameter("groupId")
   val artifactId = httpRequest.getParameter("artifactId")
@@ -141,7 +167,7 @@ class ViewArtifactController {
   var query5 = new Query()
   query5.addCriteria(Criteria.where("groupId").is(groupId).andOperator(Criteria.where("artifactId").is(artifactId), Criteria.where("version").is(version)))
   val _artifact = mongo.find(query5, classOf[ArtifactDetail])
-  
+
   if (_artifact.isEmpty == false) {
     found = true
     artifact = _artifact.get(0)
@@ -369,17 +395,17 @@ class ViewArtifactController {
 
   // diff (only svn implemented as of now. TODO improve this.
   def diff(cs: ChangeSet, cse: ChangeSetEntry) = {
-    println("Diff ==> "+httpRequest.getServerName())
+    println("Diff ==> " + httpRequest.getServerName())
     val currRevision = cs.revision
     val currFile = cse.file
     val fullFilepath = Config.getSvnBaseUrl + "/" + currFile
     // TODO Get old and new contents.
     val prevRevision = SvnUtil.getPrevRevision(fullFilepath, currRevision)
-    
+
     var prevContentLines = List[String]()
     var currContentLines = List[String]()
-    
-    if(prevRevision != -1) {
+
+    if (prevRevision != -1) {
       val prevAndCurrContents = SvnUtil.getPrevAndCurrRevisionFileContents(fullFilepath, prevRevision, currRevision)
       prevContentLines = prevAndCurrContents._1.split("\n").toList
       currContentLines = prevAndCurrContents._2.split("\n").toList
@@ -390,7 +416,7 @@ class ViewArtifactController {
 
     println("--- " + diffSource)
 
-    val title = currFile+" (Prev revision: "+prevRevision+", Curr revision: "+currRevision+" )"
+    val title = currFile + " (Prev revision: " + prevRevision + ", Curr revision: " + currRevision + " )"
     val options = new java.util.HashMap[String, Object]
     options.put("modal", java.lang.Boolean.TRUE);
     options.put("draggable", java.lang.Boolean.TRUE);
@@ -398,7 +424,7 @@ class ViewArtifactController {
     options.put("contentHeight", "'100%'");
     options.put("contentWidth", "'100%'");
     options.put("maximizable", java.lang.Boolean.TRUE);
-    
+
     options.put("height", "500");
     options.put("width", "700")
 
@@ -406,11 +432,35 @@ class ViewArtifactController {
     prevContent = diff._1
     currContent = diff._2
     diffSource.prevContent = prevContent
-    diffSource.currContent =  currContent
+    diffSource.currContent = currContent
     diffSource.prevRevision = prevRevision
     diffSource.currRevision = currRevision
     diffSource.currFile = currFile
     val params = new java.util.HashMap[String, java.util.List[String]]
     RequestContext.getCurrentInstance().openDialog("diffSource", options, new java.util.HashMap);
+  }
+
+  simpleModel = new DefaultMapModel()
+  
+  // committers map.
+  committers.foreach(committerScmId => {
+    var query5 = new Query()
+    query5.addCriteria(Criteria.where("scmUserId").is(committerScmId.trim))
+    val userProfile = mongo.find(query5, classOf[UserProfile])
+    if (userProfile.isEmpty == false) {
+      val userLocation = userProfile.get(0).location.trim
+      val locationLatLong = Config.locationsMap.get(userLocation).get
+      resolvedUsers.add(userProfile.get(0))
+      simpleModel.addOverlay(new Marker(new LatLng(locationLatLong._1, locationLatLong._2), userLocation))
+    } else {
+      unresolvedUsers.add(committerScmId)
+    }
+  })
+
+  def onMarkerSelect(event: OverlaySelectEvent) = {
+    val marker = event.getOverlay().asInstanceOf[Marker]
+    println(" -----> "+marker.getTitle)
+    usersPerLocation = new ArrayList(resolvedUsers.filter(_.location.equals(marker.getTitle)).map(_.scmUserId))
+    RequestContext.getCurrentInstance().showMessageInDialog(new FacesMessage(FacesMessage.SEVERITY_INFO, "Committers in "+marker.getTitle, usersPerLocation.mkString(",")))
   }
 } 

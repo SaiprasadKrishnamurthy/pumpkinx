@@ -406,6 +406,14 @@
 							value="Report this issue" update=":#{p:component('issues')}"></p:commandButton>
 					</p:panelGrid>
 				</p:tab>
+				<p:tab title="Committers Location Map">
+						<p:gmap id="gmap" center="27.370833,62.334167" zoom="2"
+							type="HYBRID" model="#{viewArtifact.simpleModel}"
+							style="width:600px;height:400px" rendered="#{!empty viewArtifact.resolvedUsers}">
+							<p:ajax event="overlaySelect" listener="#{viewArtifact.onMarkerSelect}" update="@this" />
+						</p:gmap>
+						<p:outputLabel value="None of the committers are registered to resolve the locations" rendered="#{empty viewArtifact.resolvedUsers}"/>
+				</p:tab>
 			</p:tabView>
 		</h:form>
 	</ui:define>
