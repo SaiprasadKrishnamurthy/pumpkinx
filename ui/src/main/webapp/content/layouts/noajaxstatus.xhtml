@@ -62,14 +62,6 @@
 			</p:layoutUnit>
 
 			<p:layoutUnit position="center">
-				<p:ajaxStatus onstart="statusDialog.show();"
-					onsuccess="statusDialog.hide();" />
-
-				<p:dialog modal="true" widgetVar="statusDialog"
-					header="Please wait.." draggable="false" closable="false">
-					<p:graphicImage value="/images/ajax-loader.gif" />
-				</p:dialog>
-
 				<h:form>
 					<p:dialog header="Login" widgetVar="dlg" resizable="false"
 						appendTo="@parent">
