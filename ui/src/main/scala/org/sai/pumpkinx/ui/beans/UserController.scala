@@ -66,6 +66,15 @@ class UserController {
   @BeanProperty
   var message: String = _
 
+  @BeanProperty
+  var userProfiles: java.util.ArrayList[UserProfile] = new ArrayList
+
+  @BeanProperty
+  var searchCriteria: String = _
+
+  @BeanProperty
+  var found: Boolean = _
+
   def register() = {
     message = ""
     locations.clear
@@ -138,5 +147,22 @@ class UserController {
 
     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Profile updated."));
 
+  }
+
+  def filterUser(userProfile: UserProfile) = userProfile.user.userId.toLowerCase.contains(searchCriteria.toLowerCase) ||
+    userProfile.user.email.toLowerCase.contains(searchCriteria.toLowerCase) ||
+    userProfile.user.fullName.toLowerCase.contains(searchCriteria.toLowerCase) ||
+    userProfile.scmUserId.toLowerCase.contains(searchCriteria.toLowerCase) ||
+    userProfile.featureRepositoryId.toLowerCase.contains(searchCriteria.toLowerCase)
+
+  def search = {
+    userProfiles.clear
+    found = false
+    if (searchCriteria == null) searchCriteria = ""
+    val allUserProfiles = mongo.findAll(classOf[UserProfile])
+    println("Sc ==> "+searchCriteria)
+    userProfiles.addAll(allUserProfiles.filter(filterUser))
+    println(userProfiles)
+    found = true
   }
 }

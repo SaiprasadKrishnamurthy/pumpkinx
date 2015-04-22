@@ -1,0 +1,87 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+	<ui:define name="main">
+		<h:form>
+			<p:spacer height="20" />
+			<p:panel header="Search Users">
+				<p:spacer height="20" />
+				<p:panelGrid columns="2">
+					<p:inputText id="acSimple" value="#{userProfile.searchCriteria}"
+						size="120" placeholder="Part of User id or name" />
+					<h:commandButton value="Find" action="#{userProfile.search}"
+						update=":#{p:component('searchResults')}" />
+				</p:panelGrid>
+			</p:panel>
+
+			<p:spacer height="5" />
+			<p:panel rendered="#{userProfile.found}" id="searchResults">
+				<p:dataTable id="userDetails" var="user"
+					value="#{userProfile.userProfiles}" paginator="true"
+					rows="50"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="10,30,50" style="width:100%">
+
+					<p:column>
+						<f:facet name="header">  
+                    Pumpkin User Id
+            </f:facet>
+						<h:outputText value="#{user.user.userId}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">  
+                    SVN Id 
+            </f:facet>
+						<h:outputText value="#{user.scmUserId}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">  
+                    JIRA Id
+            </f:facet>
+						<h:outputText value="#{user.featureRepositoryId}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">  
+                    Full name
+            </f:facet>
+						<h:outputText value="#{user.user.fullName}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">  
+                    Project
+            </f:facet>
+						<h:outputText value="#{user.projectName}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">  
+                    Team
+            </f:facet>
+						<h:outputText value="#{user.teamName}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">  
+                    Email
+            </f:facet>
+						<h:outputText value="#{user.user.email}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">  
+                    Phone number
+            </f:facet>
+						<h:outputText value="#{user.phoneNumber}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">  
+                    Location
+            </f:facet>
+						<h:outputText value="#{user.location}" />
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

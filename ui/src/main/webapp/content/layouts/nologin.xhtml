@@ -89,24 +89,31 @@
 						</h:panelGrid>
 					</p:dialog>
 					<p:menubar>
-					   <p:menuitem value="" url="welcome.do" icon="ui-icon-home" style="width:20px"></p:menuitem>
+						<p:menuitem value="" url="welcome.do" icon="ui-icon-home"
+							style="width:20px"></p:menuitem>
 						<p:submenu label="Artifacts" icon="ui-icon-document">
 							<p:menuitem value="Search" url="/content/welcome.do"
 								icon="ui-icon-search" />
 						</p:submenu>
 						<p:submenu label="Release Notes" icon="ui-icon-document">
-							 <c:if test="#{sessionScope.user != null}">
-                            <p:menuitem value="New Release notes" url="/content/createReleaseNotes.do"
-                                icon="ui-icon-document" />
-                            </c:if>
-                        
+							<c:if test="#{sessionScope.user != null}">
+								<p:menuitem value="New Release notes"
+									url="/content/createReleaseNotes.do" icon="ui-icon-document" />
+							</c:if>
+
 							<p:menuitem value="Search" url="/content/searchReleaseNotes.do"
 								icon="ui-icon-search" />
 						</p:submenu>
 						<p:submenu label="Tools" icon="ui-icon-document">
-							<p:menuitem value="Diff Artifacts" url="/content/diffArtifacts.do"
+							<p:menuitem value="Diff Artifacts"
+								url="/content/diffArtifacts.do" icon="ui-icon-search" />
+							<p:menuitem value="Issue/Feature search"
+								url="/content/searchFeatures.do" icon="ui-icon-search" />
+							<p:menuitem value="Dashboard" url="/content/dashboard.do"
+								icon="ui-icon-document" />
+							<p:menuitem value="User search" url="/content/searchUsers.do"
 								icon="ui-icon-search" />
-							<p:menuitem value="Issue/Feature search" url="/content/searchFeatures.do" icon="ui-icon-search" />
+
 						</p:submenu>
 
 

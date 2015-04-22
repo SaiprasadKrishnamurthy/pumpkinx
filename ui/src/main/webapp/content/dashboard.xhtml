@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui" template="layouts/layout.xhtml">
+
+
+    <ui:define name="main">
+        <h:form id="form">
+		        <p:panel
+                    header="Number of committers in last 15 days (based on code checkins)">
+                    <p:barChart id="stacked" value="#{charts.topCommitters}"
+                        legendPosition="ne" 
+                        title="Number of committers in last 15 days)" animate="true"
+                        xaxisAngle="-90"
+                        style="height: 400px;">
+                    </p:barChart>
+                </p:panel>
+                <p:spacer height="5" />
+                <p:panel header="No of Maven Releases in last 15 days">
+                    <p:barChart id="stacked1" value="#{charts.topReleases}"
+                        legendPosition="ne" title="Number of maven releases in last 15 days)" animate="true"
+                        xaxisAngle="-90"
+                        style="height: 400px;">
+                    </p:barChart>
+                </p:panel>
+            
+        </h:form>
+    </ui:define>
+</ui:composition>

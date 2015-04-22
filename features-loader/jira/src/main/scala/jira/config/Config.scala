@@ -16,7 +16,7 @@ object Config {
 
   def getParallelLoads = 100
   
-  def getJiraCredentials = "skrishnamurthy:galaxy123"
+  def getJiraCredentials = "pumpkin:asdqwe123"
 
   def getMongoTemplate = mongoTemplate
   

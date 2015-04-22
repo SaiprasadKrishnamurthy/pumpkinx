@@ -185,7 +185,7 @@ class ViewArtifactController {
 
     // dependee
     val query8 = new Query()
-    query8.addCriteria(Criteria.where("children.artifactId").is(artifactId).andOperator(Criteria.where("children.version").is(version), Criteria.where("children.groupId").is(groupId)))
+    query8.addCriteria(Criteria.where("children").elemMatch(Criteria.where("artifactId").is(artifactId).andOperator(Criteria.where("version").is(version), Criteria.where("groupId").is(groupId))))
     dependees = mongo.find(query8, classOf[ArtifactDetail])
 
     // dependency tree
