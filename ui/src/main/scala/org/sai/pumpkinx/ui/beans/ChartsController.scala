@@ -21,6 +21,7 @@ import org.primefaces.model.chart.CartesianChartModel
 import java.util.Date
 import api.ChangeSet
 import org.primefaces.model.chart.ChartSeries
+import java.text.SimpleDateFormat
 
 class ChartsController {
 
@@ -28,18 +29,22 @@ class ChartsController {
   val httpRequest = FacesContext.getCurrentInstance().getExternalContext().getRequest().asInstanceOf[HttpServletRequest]
   val httpResponse = FacesContext.getCurrentInstance().getExternalContext().getResponse().asInstanceOf[HttpServletResponse]
 
+  val dateFormat = new SimpleDateFormat("dd-MMM-yy")
   @BeanProperty
   var topCommitters: CartesianChartModel = _
 
   @BeanProperty
   var committersBarWidth: Int = _
-  
+
   @BeanProperty
   var topReleases: CartesianChartModel = _
 
   @BeanProperty
+  var commitTrend: CartesianChartModel = _
+
+  @BeanProperty
   var topReleasesBarWidth: Int = _
-  
+
   val fifteenDaysInMillis = 16 * 24 * 60 * 60 * 1000
 
   val fifteenDaysAgo = new Date(System.currentTimeMillis() - fifteenDaysInMillis)
@@ -67,8 +72,21 @@ class ChartsController {
   val series1 = new ChartSeries
   series1.setLabel("Number of maven releases in last 15 days")
   artifacts.foreach(committerTuple => {
-    topReleasesBarWidth = topReleasesBarWidth + 25 
+    topReleasesBarWidth = topReleasesBarWidth + 25
     series1.set(committerTuple._1, committerTuple._2.size)
   })
   topReleases.addSeries(series1)
+
+  commitTrend = new CartesianChartModel
+
+  val changeSetsPerDate = changesets.toList.groupBy(cs => dateFormat.format(cs.commitDate))
+
+  val series2 = new ChartSeries
+  val keysSorted = changeSetsPerDate.keySet.toList.sortBy(_.toString)
+  series2.setLabel("Number code commits in last 15 days")
+  keysSorted.foreach(key => {
+    println(key + " ==> "+changeSetsPerDate.get(key).size)
+    series2.set(key, changeSetsPerDate.get(key).get.size)
+  })
+  commitTrend.addSeries(series2)
 }

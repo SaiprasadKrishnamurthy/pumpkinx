@@ -12,9 +12,9 @@ import org.tmatesoft.svn.core.internal.io.svn.SVNRepositoryFactoryImpl
  */
 object Config {
 
-  val remoteMongo = new SimpleMongoDbFactory(new MongoClient(), "pumpkinx")
+  val mongo = new SimpleMongoDbFactory(new MongoClient(), "pumpkinx")
 
-  val mongo = new SimpleMongoDbFactory(new MongoClient("10.70.101.135"), "pumpkinx")
+  //val mongo = new SimpleMongoDbFactory(new MongoClient("10.70.101.135"), "pumpkinx")
 
   // This is just an aggregator pom and will simply list the children which are actually releasable.
   def getAggregatorArtifactCategory = {

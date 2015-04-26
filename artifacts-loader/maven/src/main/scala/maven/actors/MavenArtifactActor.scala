@@ -8,6 +8,7 @@ import akka.routing.RoundRobinRouter
 import maven.config.Config
 import maven.util.VersionUtils
 import pumpkinx.api.ArtifactConfig
+import java.util.UUID
 
 /**
  * @author Sai Kris
@@ -16,7 +17,7 @@ class MavenArtifactActor extends Actor with ActorLogging {
 
   def receive = {
     case a: ArtifactConfig if (a.artifactFamily.equals("maven")) => {
-      val mavenArtifactResolvingActor = context.actorOf(Props.create(classOf[MavenArtifactResolvingActor]).withRouter(new RoundRobinRouter(Config.getLimitVersions)))
+      val mavenArtifactResolvingActor = context.actorOf(Props.create(classOf[MavenArtifactResolvingActor]), "MavenArtifactResolvingActor"+UUID.randomUUID())
       log.info("Maven artifact actor triggered for " + a.groupId + " | " + a.artifactId + " | " + a.classifier)
       log.info(s"Getting all available versions for $a")
       val allartifactVersions = getAllVersions(a)

@@ -10,6 +10,7 @@ import pumpkinx.api.StartArtifactLoad
 import subversion.config.Config
 import pumpkinx.api.ArtifactDetail
 import pumpkinx.api.ArtifactScmDetail
+import java.util.UUID
 
 /**
  * @author Sai Kris
@@ -18,7 +19,7 @@ class TriggerActor extends Actor with ActorLogging {
 
   def receive = {
     case StartArtifactLoad() => {
-      val svnActor = context.actorOf(Props.create(classOf[SubversionActor]).withRouter(new RoundRobinRouter(Config.getParallelSourceLoads)), "SubversionActor")
+      val svnActor = context.actorOf(Props.create(classOf[SubversionActor]).withRouter(new RoundRobinRouter(Config.getParallelSourceLoads)), "SubversionActor_"+UUID.randomUUID())
       log.info("Triggered Subversion Loader Actor ")
       val allArtifactDetails = Config.getMongoTemplate.findAll(classOf[ArtifactScmDetail]).sortBy(_.versionSequence).reverse
       val allArtifactConfigs = Config.getMongoTemplate.findAll(classOf[ArtifactConfig])
